@@ -1,6 +1,6 @@
 Project::Application.routes.draw do
   devise_for :admins
-  namespace :admins do
+  namespace :admin do
      root :to => "admins#index"
   end
 
