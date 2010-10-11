@@ -1,0 +1,387 @@
+  [1m[36mSQL (96.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.5ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (11.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (29.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (3.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (13.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.4ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to DeviseCreateAdmins (20101010110848)
+  [1m[35mSQL (0.3ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.1ms)[0m  [1mCREATE TABLE "admins" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("admins")
+  [1m[36mSQL (0.5ms)[0m  [1mCREATE UNIQUE INDEX "index_admins_on_email" ON "admins" ("email")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("admins")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_admins_on_email')[0m
+  [1m[35mSQL (0.1ms)[0m  CREATE UNIQUE INDEX "index_admins_on_reset_password_token" ON "admins" ("reset_password_token")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20101010110848')[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("admins")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_admins_on_reset_password_token')
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_admins_on_email')[0m
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Oct 10 19:12:42 +0800 2010
+
+NoMethodError (undefined method `devise_for' for #<ActionDispatch::Routing::Mapper:0xb73988e0>):
+  config/routes.rb:2
+  config/routes.rb:1
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (10.0ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (35.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Oct 10 19:13:37 +0800 2010
+
+ActionController::RoutingError (No route matches "/admin"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Oct 10 19:13:42 +0800 2010
+
+ActionController::RoutingError (No route matches "/admin"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Oct 10 19:16:05 +0800 2010
+
+ActionController::RoutingError (No route matches "/admin"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/Admins" for 127.0.0.1 at Sun Oct 10 19:17:09 +0800 2010
+
+ActionController::RoutingError (No route matches "/Admins"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/Admins/sign_up" for 127.0.0.1 at Sun Oct 10 19:17:28 +0800 2010
+
+ActionController::RoutingError (No route matches "/Admins/sign_up"):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.4ms)
+
+
+Started GET "/admins/sign_up" for 127.0.0.1 at Sun Oct 10 19:17:36 +0800 2010
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered /usr/lib/ruby/gems/1.8/gems/devise-1.1.3/app/views/devise/shared/_links.erb (4.2ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/devise-1.1.3/app/views/devise/registrations/new.html.erb within layouts/application (80.7ms)
+Completed 200 OK in 134ms (Views: 92.2ms | ActiveRecord: 0.0ms)
+
+LoadError (no such file to load -- openssl):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (180.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (191.8ms)
+
+
+Started GET "/admins/sign_up" for 127.0.0.1 at Sun Oct 10 19:21:27 +0800 2010
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered /usr/lib/ruby/gems/1.8/gems/devise-1.1.3/app/views/devise/shared/_links.erb (4.3ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/devise-1.1.3/app/views/devise/registrations/new.html.erb within layouts/application (28.9ms)
+Completed 200 OK in 42ms (Views: 36.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admins" for 127.0.0.1 at Sun Oct 10 19:21:42 +0800 2010
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"commit"=>"Sign up", "admin"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"shaoshuai321@gmail.com"}, "authenticity_token"=>"EGpMFl4bKUS5txDMCxZEHZwn95D2Mh+4aN+DxkpCgew=", "utf8"=>"\342\234\223"}
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mAdmin Load (0.1ms)[0m  SELECT "admins"."id" FROM "admins" WHERE (LOWER("admins"."email") = LOWER('shaoshuai321@gmail.com')) LIMIT 1
+  [1m[36mSQL (0.8ms)[0m  [1mINSERT INTO "admins" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "password_salt", "remember_created_at", "remember_token", "reset_password_token", "sign_in_count", "updated_at") VALUES ('2010-10-10 11:21:43.183392', NULL, NULL, 'shaoshuai321@gmail.com', '$2a$10$C.8y3KVoV6VXTyDJVlCqAeQVZBVJWESD5Lcip6EGFh2ov.uZyMaju', NULL, NULL, '$2a$10$C.8y3KVoV6VXTyDJVlCqAe', NULL, NULL, NULL, 0, '2010-10-10 11:21:43.183392')[0m
+  [1m[35mSQL (0.7ms)[0m  UPDATE "admins" SET "current_sign_in_at" = '2010-10-10 11:21:43.220225', "current_sign_in_ip" = '127.0.0.1', "last_sign_in_at" = '2010-10-10 11:21:43.220225', "last_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2010-10-10 11:21:43.221051' WHERE ("admins"."id" = 1)
+Completed   in 428ms
+
+NameError (undefined local variable or method `root_path' for #<Devise::RegistrationsController:0xb679cac8>):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (175.9ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (185.2ms)
+
+
+Started POST "/admins" for 127.0.0.1 at Sun Oct 10 19:24:30 +0800 2010
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"commit"=>"Sign up", "admin"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"shaoshuai321@gmail.com"}, "authenticity_token"=>"EGpMFl4bKUS5txDMCxZEHZwn95D2Mh+4aN+DxkpCgew=", "utf8"=>"\342\234\223"}
+  [1m[36mAdmin Load (0.3ms)[0m  [1mSELECT "admins"."id" FROM "admins" WHERE (LOWER("admins"."email") = LOWER('shaoshuai321@gmail.com')) LIMIT 1[0m
+Rendered /usr/lib/ruby/gems/1.8/gems/devise-1.1.3/app/views/devise/shared/_links.erb (2.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/devise-1.1.3/app/views/devise/registrations/new.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 143ms (Views: 23.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at Sun Oct 10 19:24:45 +0800 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered /usr/lib/ruby/gems/1.8/gems/devise-1.1.3/app/views/devise/shared/_links.erb (2.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/devise-1.1.3/app/views/devise/sessions/new.html.erb within layouts/application (16.7ms)
+Completed 200 OK in 48ms (Views: 23.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at Sun Oct 10 19:24:55 +0800 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "admin"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"shaoshuai321@gmail.com"}, "authenticity_token"=>"EGpMFl4bKUS5txDMCxZEHZwn95D2Mh+4aN+DxkpCgew=", "utf8"=>"\342\234\223"}
+  [1m[35mAdmin Load (0.5ms)[0m  SELECT "admins".* FROM "admins" WHERE ("admins"."email" = 'shaoshuai321@gmail.com') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "admins" SET "current_sign_in_at" = '2010-10-10 11:24:55.732307', "sign_in_count" = 2, "updated_at" = '2010-10-10 11:24:55.733296' WHERE ("admins"."id" = 1)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 215ms
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at Sun Oct 10 19:31:18 +0800 2010
+  Processing by Devise::SessionsController#new as HTML
+  [1m[35mAdmin Load (12.2ms)[0m  SELECT "admins".* FROM "admins" WHERE ("admins"."id" = 1) LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 83ms
+
+
+Started GET "/admins/sign_out" for 127.0.0.1 at Sun Oct 10 19:31:30 +0800 2010
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mAdmin Load (0.5ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE ("admins"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 85ms
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at Sun Oct 10 19:31:38 +0800 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered /usr/lib/ruby/gems/1.8/gems/devise-1.1.3/app/views/devise/shared/_links.erb (3.0ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/devise-1.1.3/app/views/devise/sessions/new.html.erb within layouts/application (17.0ms)
+Completed 200 OK in 202ms (Views: 24.4ms | ActiveRecord: 12.6ms)
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at Sun Oct 10 19:31:43 +0800 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "admin"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"shaosh"}, "authenticity_token"=>"EGpMFl4bKUS5txDMCxZEHZwn95D2Mh+4aN+DxkpCgew=", "utf8"=>"\342\234\223"}
+Completed   in 14ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "admin"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"shaosh"}, "authenticity_token"=>"EGpMFl4bKUS5txDMCxZEHZwn95D2Mh+4aN+DxkpCgew=", "utf8"=>"\342\234\223"}
+Rendered /usr/lib/ruby/gems/1.8/gems/devise-1.1.3/app/views/devise/shared/_links.erb (2.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/devise-1.1.3/app/views/devise/sessions/new.html.erb within layouts/application (16.9ms)
+Completed 200 OK in 39ms (Views: 23.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at Sun Oct 10 19:31:51 +0800 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "admin"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"shaoshuai321@gmail.com"}, "authenticity_token"=>"EGpMFl4bKUS5txDMCxZEHZwn95D2Mh+4aN+DxkpCgew=", "utf8"=>"\342\234\223"}
+  [1m[35mAdmin Load (1.3ms)[0m  SELECT "admins".* FROM "admins" WHERE ("admins"."email" = 'shaoshuai321@gmail.com') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "admins" SET "current_sign_in_at" = '2010-10-10 11:31:52.181305', "last_sign_in_at" = '2010-10-10 11:24:55.732307', "sign_in_count" = 3, "updated_at" = '2010-10-10 11:31:52.184887' WHERE ("admins"."id" = 1)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 385ms
+
+
+Started GET "/admins/sign_out" for 127.0.0.1 at Sun Oct 10 20:38:15 +0800 2010
+
+NameError (undefined local variable or method `map' for #<ActionDispatch::Routing::Mapper:0xb686f068>):
+  config/routes.rb:3
+  config/routes.rb:1
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (18.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (48.3ms)
+
+
+Started GET "/admins/sign_out" for 127.0.0.1 at Sun Oct 10 20:42:33 +0800 2010
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[35mAdmin Load (0.9ms)[0m  SELECT "admins".* FROM "admins" WHERE ("admins"."id" = 1) LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 178ms
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at Sun Oct 10 20:42:43 +0800 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered /usr/lib/ruby/gems/1.8/gems/devise-1.1.3/app/views/devise/shared/_links.erb (6.4ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/devise-1.1.3/app/views/devise/sessions/new.html.erb within layouts/application (1021.0ms)
+Completed 200 OK in 1169ms (Views: 1048.9ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at Sun Oct 10 20:42:56 +0800 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "admin"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"shaoshuai321@gmail.com"}, "authenticity_token"=>"EGpMFl4bKUS5txDMCxZEHZwn95D2Mh+4aN+DxkpCgew=", "utf8"=>"\342\234\223"}
+  [1m[36mAdmin Load (0.5ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE ("admins"."email" = 'shaoshuai321@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (6.4ms)[0m  UPDATE "admins" SET "current_sign_in_at" = '2010-10-10 12:42:57.002499', "last_sign_in_at" = '2010-10-10 11:31:52.181305', "sign_in_count" = 4, "updated_at" = '2010-10-10 12:42:57.004203' WHERE ("admins"."id" = 1)
+Redirected to http://localhost:3000/
+Completed 302 Found in 233ms
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at Sun Oct 10 21:20:34 +0800 2010
+  Processing by Devise::SessionsController#new as HTML
+  [1m[36mAdmin Load (0.6ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE ("admins"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 286ms
+
+
+Started GET "/admins/sign_out" for 127.0.0.1 at Sun Oct 10 21:20:40 +0800 2010
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[35mAdmin Load (0.5ms)[0m  SELECT "admins".* FROM "admins" WHERE ("admins"."id" = 1) LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 648ms
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at Sun Oct 10 21:20:45 +0800 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered /usr/lib/ruby/gems/1.8/gems/devise-1.1.3/app/views/devise/shared/_links.erb (2.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/devise-1.1.3/app/views/devise/sessions/new.html.erb within layouts/application (108.4ms)
+Completed 200 OK in 182ms (Views: 122.9ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at Sun Oct 10 21:20:50 +0800 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "admin"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"shaoshu"}, "authenticity_token"=>"EGpMFl4bKUS5txDMCxZEHZwn95D2Mh+4aN+DxkpCgew=", "utf8"=>"\342\234\223"}
+Completed   in 19ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "admin"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"shaoshu"}, "authenticity_token"=>"EGpMFl4bKUS5txDMCxZEHZwn95D2Mh+4aN+DxkpCgew=", "utf8"=>"\342\234\223"}
+Rendered /usr/lib/ruby/gems/1.8/gems/devise-1.1.3/app/views/devise/shared/_links.erb (2.5ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/devise-1.1.3/app/views/devise/sessions/new.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 38ms (Views: 24.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at Sun Oct 10 21:20:55 +0800 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "admin"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"shaoshuai321@gmail.com"}, "authenticity_token"=>"EGpMFl4bKUS5txDMCxZEHZwn95D2Mh+4aN+DxkpCgew=", "utf8"=>"\342\234\223"}
+  [1m[36mAdmin Load (0.1ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE ("admins"."email" = 'shaoshuai321@gmail.com') LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "admins" SET "current_sign_in_at" = '2010-10-10 13:20:56.323912', "last_sign_in_at" = '2010-10-10 12:42:57.002499', "sign_in_count" = 5, "updated_at" = '2010-10-10 13:20:56.324915' WHERE ("admins"."id" = 1)
+Redirected to http://localhost:3000/
+Completed 302 Found in 304ms
+
+
+Started GET "/admins/sign_out" for 127.0.0.1 at Mon Oct 11 23:28:27 +0800 2010
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mAdmin Load (3.9ms)[0m  [1mSELECT "admins".* FROM "admins" WHERE ("admins"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 1603ms
+
+
+Started GET "/admins/sign_in" for 127.0.0.1 at Mon Oct 11 23:28:42 +0800 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered /usr/lib/ruby/gems/1.8/gems/devise-1.1.3/app/views/devise/shared/_links.erb (56.7ms)
+Rendered /usr/lib/ruby/gems/1.8/gems/devise-1.1.3/app/views/devise/sessions/new.html.erb within layouts/application (694.6ms)
+Completed 200 OK in 1288ms (Views: 909.6ms | ActiveRecord: 3.9ms)
+
+
+Started POST "/admins/sign_in" for 127.0.0.1 at Mon Oct 11 23:28:57 +0800 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "admin"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"shaoshuai321@gmail.com"}, "authenticity_token"=>"EGpMFl4bKUS5txDMCxZEHZwn95D2Mh+4aN+DxkpCgew=", "utf8"=>"\342\234\223"}
+  [1m[35mAdmin Load (0.5ms)[0m  SELECT "admins".* FROM "admins" WHERE ("admins"."email" = 'shaoshuai321@gmail.com') LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mUPDATE "admins" SET "current_sign_in_at" = '2010-10-11 15:28:57.817484', "last_sign_in_at" = '2010-10-10 13:20:56.323912', "sign_in_count" = 6, "updated_at" = '2010-10-11 15:28:57.818623' WHERE ("admins"."id" = 1)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 272ms
+
+
+Started GET "/admins/" for 127.0.0.1 at Mon Oct 11 23:31:00 +0800 2010
+
+ActionController::RoutingError (uninitialized constant Admins):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/admins/" for 127.0.0.1 at Mon Oct 11 23:32:06 +0800 2010
+
+ActionController::RoutingError (uninitialized constant Admins):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/admins/" for 127.0.0.1 at Mon Oct 11 23:32:07 +0800 2010
+
+ActionController::RoutingError (uninitialized constant Admins):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/admins/" for 127.0.0.1 at Mon Oct 11 23:36:06 +0800 2010
+
+ActionController::RoutingError (uninitialized constant Admins):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/admins/" for 127.0.0.1 at Mon Oct 11 23:36:09 +0800 2010
+
+ActionController::RoutingError (uninitialized constant Admins):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+
+
+Started GET "/admins/" for 127.0.0.1 at Mon Oct 11 23:36:10 +0800 2010
+
+ActionController::RoutingError (uninitialized constant Admins):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (9.4ms)
+
+
+Started GET "/admins/" for 127.0.0.1 at Mon Oct 11 23:36:17 +0800 2010
+
+ActionController::RoutingError (uninitialized constant Admins):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/admins/" for 127.0.0.1 at Mon Oct 11 23:36:18 +0800 2010
+
+ActionController::RoutingError (uninitialized constant Admins):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (4.6ms)
+
+
+Started GET "/admins/" for 127.0.0.1 at Mon Oct 11 23:36:18 +0800 2010
+
+ActionController::RoutingError (uninitialized constant Admins):
+  
+
+Rendered /usr/lib/ruby/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.0ms)
