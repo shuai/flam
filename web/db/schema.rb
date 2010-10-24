@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101010110848) do
+ActiveRecord::Schema.define(:version => 20101018163113) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -30,5 +30,42 @@ ActiveRecord::Schema.define(:version => 20101010110848) do
 
   add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
+
+  create_table "captions", :force => true do |t|
+    t.string   "location"
+    t.string   "format"
+    t.string   "package"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "packages", :force => true do |t|
+    t.string   "location"
+    t.string   "status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "programs", :force => true do |t|
+    t.string   "title"
+    t.integer  "length"
+    t.integer  "raw_video_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "raw_videos", :force => true do |t|
+    t.string  "title"
+    t.string  "location"
+    t.string  "package"
+    t.integer "status"
+    t.integer "caption_id"
+  end
+
+  create_table "video_resources", :force => true do |t|
+    t.integer "raw_video_id"
+    t.string  "location"
+    t.integer "bitrate"
+  end
 
 end

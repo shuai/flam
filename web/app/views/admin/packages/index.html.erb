@@ -1,0 +1,24 @@
+<h1>Listing packages</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @packages.each do |package| %>
+  <tr>
+    <td><%= package.id %></td>
+    <td><%= package.location %></td>
+    <td><%= package.status %></td>
+    <td><%= link_to 'Show', [:admin,package] %></td>
+    <td><%= link_to 'Edit', edit_admin_package_path(package) %></td>
+    <td><%= link_to 'Destroy', [:admin,package], :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Package', new_admin_package_path %>

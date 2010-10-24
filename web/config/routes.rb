@@ -1,8 +1,15 @@
 Project::Application.routes.draw do
-  devise_for :admins
+  
+
   namespace :admin do
      root :to => "admins#index"
+     resources :packages
   end
+
+  
+  devise_for :admins , :path => "admin"
+
+  get "/test" => "test#index"
 
 
   # The priority is based upon order of creation:

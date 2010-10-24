@@ -5,3 +5,11 @@ Signed in as <%= current_admin.email %>.
 
 
 <h2>Admin portal</h2>
+
+<h3>Package</h3>
+<%= link_to "New package", new_admin_package_path %>
+<br>
+<% @packages.each do |package| %>
+  <%=package.id%> || <%=package.location%> || <%=package.status%> 
+  <%= link_to "Delete", [:admin, package], :method => :delete %> <br>
+<% end %>
