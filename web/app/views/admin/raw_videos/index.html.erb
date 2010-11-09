@@ -1,0 +1,21 @@
+<h1>Listing raw_videos</h1>
+
+<table>
+  <tr>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @raw_videos.each do |raw_video| %>
+  <tr>
+    <td><%= raw_video.location %></td>
+    <td><%= link_to 'Show', raw_video %></td>
+    <td><%= link_to 'Edit', edit_raw_video_path(raw_video) %></td>
+    <td><%= link_to 'Destroy', raw_video, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+

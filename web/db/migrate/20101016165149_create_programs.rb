@@ -3,7 +3,7 @@ class CreatePrograms < ActiveRecord::Migration
     create_table :programs do |t|
       t.string :title #Title of the video
       t.integer :length #Length(in seconds) of the program
-      t.references :raw_video
+      t.references :clip
       t.timestamps
     end
   end

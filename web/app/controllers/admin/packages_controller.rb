@@ -42,8 +42,7 @@ class Admin::PackagesController < ApplicationController
   # POST /packages
   # POST /packages.xml
   def create
-    @package = Package.new(params[:package])
-    puts params[:package]
+    @package = Package.new(:location => params[:location], :status => "new")
     
     respond_to do |format|
       if @package.save

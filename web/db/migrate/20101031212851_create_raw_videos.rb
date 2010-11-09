@@ -5,7 +5,10 @@ class CreateRawVideos < ActiveRecord::Migration
         t.string :location # S3 or local
         t.string :package  # the original package where this video belongs to
         
-        t.integer :status # not used
+        t.string :need_bitrates # bitrates that we need, separated by ,
+        t.string :exist_bitrates # bitrates that exist already, separated by ,
+
+        t.string :status # not used
         t.references :caption # caption to use
     end
   end

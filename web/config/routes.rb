@@ -1,9 +1,13 @@
 Project::Application.routes.draw do
   
 
+  resources :raw_videos
+
   namespace :admin do
      root :to => "admins#index"
      resources :packages
+     resources :video_resources
+     resources :raw_videos
   end
 
   

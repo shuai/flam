@@ -2,27 +2,6 @@
 
 #处理下载回来的资源包，解压，生成唯一ID，找出视频和字幕文件写入数据库
 
-########################################################
-# params
-
-sql_host = "localhost"
-sql_user = "root"
-sql_pswd = "idontknow"
-sql_database = "db_flam"
-sql_tbl_raw_resource = "raw_videos"
-sql_tbl_captions="captions"
-sql_tbl_package="packages"
-
-#目标文件夹结构
-#视频唯一编号/视频资源目录/原始资源包(包括目录)        
-raw_files_dir=''
-source_dir = ''
-
-#TODO 完全列表
-video_extension = ['.rmvb','.rm','.mkv','.avi','.wmv','.flv','.f4v','.mov']
-caption_extension = ['.wtf']
-########################################################
-
 require 'rubygems'
 require 'fileutils'
 require 'tmpdir'
@@ -30,10 +9,15 @@ require 'uuid'
 require 'ftools'
 require "mysql"
 
+require "common.rb"
+
 def is_video(name)
-    video_extension.each do |ext|
-        if name.length > ext.length + 1 and name[name.length-ext.length,ext.length] == ext
-            return true
+
+    Video_extension.each do |ext|
+        if name.length >= ext.length + 1 
+            if name[name.length-ext.length,ext.length] == ext
+                return true
+            end
         end
     end
     
@@ -41,7 +25,7 @@ def is_video(name)
 end
 
 def is_caption(name)
-    caption_extension.each do |ext|
+    Caption_extension.each do |ext|
         if name.length > ext.length + 1 and name[name.length-ext.length,ext.length] == ext
             return true
         end
@@ -52,16 +36,22 @@ end
 
 #视频文件写到raw_video数据库
 def save_resources(videos, captions, package_id)
-    my = Mysql::new(sql_host, sql_user, sql_pswd, sql_database)
+    if videos.size + captions.size > 0
+       puts "Found #{videos.size} videos and #{captions.size} captions"
+    else
+       return
+    end
+
+    my = Mysql::new(Sql_host, Sql_user, Sql_pswd, Sql_database)
     
+    puts "wtf"
     videos.each do |v|
-        res = my.query("insert into #{sql_tbl_raw_resource}(title,location,package) 
-                        VALUES(#{v},#{v},#{package_id});")
+        sql_query = "insert into #{Sql_tbl_raw_resource}(title,location,package) VALUES('#{v}','#{v}','#{package_id}');"
+        res = my.query(sql_query)
     end
     
     captions.each do |v|
-        res = my.query("insert into #{sql_tbl_captions}(location,package) 
-                        VALUES(#{v},#{package_id});")
+        res = my.query("insert into #{Sql_tbl_captions}(location,package) VALUES('#{v}',#{package_id});")
     end
         
 end
@@ -84,14 +74,14 @@ def search_dirctory(directory)
             next
         end
             
-        file = File.new filename
-        if file.directory? 
+        full_path = directory + filename
+        if File.directory? full_path 
             search_dirctory(directory)
         elsif is_video filename
-            @videos << filename
+            @videos << full_path
             puts "Video file #{filename}"
         elsif is_caption filename
-            @captions << filename
+            @captions << fullpath
             puts "Caption file #{filename}"
         else
             puts "Unrecognized file #{filename}"
@@ -99,38 +89,41 @@ def search_dirctory(directory)
     end
 end
 
-def parse_resource(url)
-    if !url.nil? && !url.empty?
-        dirname = url.split('/').last
-        uuid = UUID.new
-        if url[url.length-1] == '/'
-            FileUtils.mv url, "#{raw_files_dir}/#{uuid}/#{dirname}"
-            handle_directory "#{raw_files_dir}/#{uuid}/#{dirname}", uuid
-        else
-            raise 'Handle zipped package!'
+def parse_resource(dir)
+    if !dir.nil? && !dir.empty?
+        dirname = dir.split('/').last
+        uuid = UUID.generate
+          
+        if File.directory? dir or File.file? dir and is_video dir
+            system "mkdir #{Raw_files_dir}#{uuid}/"
+	    system "mv #{dir} #{Raw_files_dir}#{uuid}/"
+            handle_directory "#{Raw_files_dir}#{uuid}/", uuid    
+	else
+            raise  "'#{dir}' is not a valid path"
             # TODO 处理压缩包
         end
     end 
 end
 
 if __FILE__ == $0
-    my = Mysql::new(sql_host, sql_user, sql_pswd, sql_database)
+    my = Mysql::new(Sql_host, Sql_user, Sql_pswd, Sql_database)
     
     while true
-        res = my.query("select * from #{sql_tbl_package} where status = 'new'")
+        res = my.query("select * from #{Sql_tbl_package} where status = 'new'")
         
         res.each do |row|
-          loc = row[:location]
-          puts "New task #{loc} ..."
+          loc = row[1] #location
+          puts "================================================="
+          puts "New task '#{loc}' ..."
           begin 
             parse_resource(loc)
-          rescue
-            puts "task failed"
+          rescue => e
+            puts "task failed", e
           end
         end
         
         puts 'idling'
-        sleep 5
+        sleep 100
     end
 end
 

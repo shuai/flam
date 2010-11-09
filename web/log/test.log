@@ -1,0 +1,16 @@
+Unable to load caption, underlying cause No such file to load -- caption 
+
+ /var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/dependencies.rb:304:in `depend_on'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/dependencies.rb:216:in `require_dependency'
+/var/lib/gems/1.8/gems/activerecord-3.0.0/lib/active_record/fixtures.rb:864:in `try_to_load_dependency'
+/var/lib/gems/1.8/gems/activerecord-3.0.0/lib/active_record/fixtures.rb:879:in `require_fixture_classes'
+/var/lib/gems/1.8/gems/activerecord-3.0.0/lib/active_record/fixtures.rb:876:in `each'
+/var/lib/gems/1.8/gems/activerecord-3.0.0/lib/active_record/fixtures.rb:876:in `require_fixture_classes'
+/var/lib/gems/1.8/gems/activerecord-3.0.0/lib/active_record/fixtures.rb:859:in `fixtures'
+./test/test_helper.rb:10
+./test/functional/video_resource_controller_test.rb:1:in `require'
+./test/functional/video_resource_controller_test.rb:1
+/var/lib/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `load'
+/var/lib/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5
+/var/lib/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5:in `each'
+/var/lib/gems/1.8/gems/rake-0.8.7/lib/rake/rake_test_loader.rb:5
