@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101018163113) do
+ActiveRecord::Schema.define(:version => 20101101003740) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -39,6 +39,15 @@ ActiveRecord::Schema.define(:version => 20101018163113) do
     t.datetime "updated_at"
   end
 
+  create_table "clips", :force => true do |t|
+    t.integer  "raw_video_id"
+    t.string   "location"
+    t.integer  "length"
+    t.integer  "bitrate"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "packages", :force => true do |t|
     t.string   "location"
     t.string   "status"
@@ -49,7 +58,7 @@ ActiveRecord::Schema.define(:version => 20101018163113) do
   create_table "programs", :force => true do |t|
     t.string   "title"
     t.integer  "length"
-    t.integer  "raw_video_id"
+    t.integer  "clip_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -58,7 +67,9 @@ ActiveRecord::Schema.define(:version => 20101018163113) do
     t.string  "title"
     t.string  "location"
     t.string  "package"
-    t.integer "status"
+    t.string  "need_bitrates"
+    t.string  "exist_bitrates"
+    t.string  "status"
     t.integer "caption_id"
   end
 

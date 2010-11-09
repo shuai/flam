@@ -3,6 +3,7 @@
 # Transcode raw videos to bitrates we want
 
 require "mysql"
+require "common.rb"
 
 def getcliplocation(raw_video_id, bitrate)
     "#{Clip_dir}#{raw_video_id}/#{bitrate}.f4v"
@@ -12,7 +13,7 @@ def transcode(raw_video_location, clip_location, bitrate)
     #TODO here call ffmpeg to transcode
 end
 
-def task(id, location, target_bitrate)
+def task(id, location, target_bitrate, exist_bitrate)
     puts "==========================="
     puts "transcode '#{location}'"
     puts "target bitrates #{target_bitrate.join ' '}"
@@ -30,18 +31,22 @@ def task(id, location, target_bitrate)
         end
     end
 
-    # TODO HERE, update raw_video table
+    # TODO log failed task
+    $my.query("update #{Sql_tbl_raw_resource} set #{Rawvideo_needbitrates}=null, #{Rawvideo_existbitrates}=#{succeed_clips.join ','} where id == #{id}")
 end
 
 if __FILE__ == $0
     $my = Mysql::new(Sql_host, Sql_user, Sql_pswd, Sql_database)
 
     while true
-       res = $my.query("select id,#{Rawvideo_location},#{Rawvideo_needbitrates} from #{Sql_tbl_raw_resource} where #{Rawvideo_needbitrates} is not null")
+       res = $my.query("select id,#{Rawvideo_location},#{Rawvideo_needbitrates},#{Rawvideo_existbitrates} from #{Sql_tbl_raw_resource} where #{Rawvideo_needbitrates} is not null")
        res.each do |row|
-            location = row[1]
             need_bitrates = row[2].split ","  
-            task row[0], location, need_bitrates       
+            exist_bitrates = row[3].split ","  
+            task row[0], row[1], need_bitrates , exist_bitrates  
        end
+
+       puts "idling"
+       sleep 10
     end
 end

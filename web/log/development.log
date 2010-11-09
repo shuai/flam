@@ -4249,3 +4249,189 @@ ActionController::RoutingError (uninitialized constant RawVideosController):
   
 
 Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.2ms)
+  [1m[36mSQL (33.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (9.3ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to DeviseCreateAdmins (20101010110848)
+Migrating to CreateVideoResources (20101016163903)
+Migrating to CreatePrograms (20101016165149)
+Migrating to CreateCaptions (20101018154605)
+Migrating to CreatePackages (20101018163113)
+Migrating to CreateRawVideos (20101031212851)
+  [1m[35mSQL (0.4ms)[0m  CREATE TABLE `raw_videos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `location` varchar(255), `package` varchar(255), `need_bitrates` varchar(255), `exist_bitrates` varchar(255), `status` varchar(255), `caption_id` int(11)) ENGINE=InnoDB
+Mysql::Error: Table 'raw_videos' already exists: CREATE TABLE `raw_videos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `location` varchar(255), `package` varchar(255), `need_bitrates` varchar(255), `exist_bitrates` varchar(255), `status` varchar(255), `caption_id` int(11)) ENGINE=InnoDB
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreatePackages (20101018163113)
+  [1m[35mSQL (5.3ms)[0m  DROP TABLE `packages`
+  [1m[36mSQL (40.0ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20101018163113'[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `admins`[0m
+  [1m[35mSQL (0.6ms)[0m  SHOW KEYS FROM `admins`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `captions`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `captions`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `programs`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `programs`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `raw_videos`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `raw_videos`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `video_resources`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `video_resources`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to CreateCaptions (20101018154605)
+  [1m[35mSQL (3.0ms)[0m  DROP TABLE `captions`
+  [1m[36mSQL (1.4ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20101018154605'[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `admins`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `admins`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `programs`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `programs`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `raw_videos`[0m
+  [1m[35mSQL (5.4ms)[0m  SHOW KEYS FROM `raw_videos`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `video_resources`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `video_resources`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `admins`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `admins`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `programs`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `programs`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `raw_videos`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `raw_videos`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `video_resources`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `video_resources`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `admins`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `admins`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `programs`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `programs`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `raw_videos`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `raw_videos`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `video_resources`[0m
+  [1m[35mSQL (2.2ms)[0m  SHOW KEYS FROM `video_resources`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to DeviseCreateAdmins (20101010110848)
+Migrating to CreateVideoResources (20101016163903)
+Migrating to CreatePrograms (20101016165149)
+Migrating to CreateCaptions (20101018154605)
+  [1m[35mSQL (107.1ms)[0m  CREATE TABLE `captions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `location` varchar(255), `format` varchar(255), `package` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `schema_migrations`[0m
+  [1m[35mSQL (10.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101018154605')
+Migrating to CreatePackages (20101018163113)
+  [1m[36mSQL (26.3ms)[0m  [1mCREATE TABLE `packages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `location` varchar(255), `status` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (12.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101018163113')
+Migrating to CreateRawVideos (20101031212851)
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE TABLE `raw_videos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `location` varchar(255), `package` varchar(255), `need_bitrates` varchar(255), `exist_bitrates` varchar(255), `status` varchar(255), `caption_id` int(11)) ENGINE=InnoDB[0m
+Mysql::Error: Table 'raw_videos' already exists: CREATE TABLE `raw_videos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `location` varchar(255), `package` varchar(255), `need_bitrates` varchar(255), `exist_bitrates` varchar(255), `status` varchar(255), `caption_id` int(11)) ENGINE=InnoDB
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (25.3ms)[0m  CREATE TABLE `admins` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(128) DEFAULT '' NOT NULL, `password_salt` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `remember_token` varchar(255), `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.5ms)[0m  [1mSHOW KEYS FROM `admins`[0m
+  [1m[35mSQL (73.2ms)[0m  CREATE UNIQUE INDEX `index_admins_on_email` ON `admins` (`email`)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `admins`[0m
+  [1m[35mSQL (39.3ms)[0m  CREATE UNIQUE INDEX `index_admins_on_reset_password_token` ON `admins` (`reset_password_token`)
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (22.5ms)[0m  CREATE TABLE `programs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `length` int(11), `raw_video_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (13.4ms)[0m  CREATE TABLE `raw_videos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `location` varchar(255), `package` varchar(255), `status` int(11), `caption_id` int(11)) ENGINE=InnoDB
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (30.1ms)[0m  CREATE TABLE `video_resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `raw_video_id` int(11), `location` varchar(255), `bitrate` int(11)) ENGINE=InnoDB
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (29.7ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `schema_migrations`[0m
+  [1m[35mSQL (77.2ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT version FROM `schema_migrations`
+  [1m[36mSQL (16.3ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20101017073200')[0m
+  [1m[35mSQL (2.1ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20101010110848')
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20101016163903')[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20101016165149')
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to DeviseCreateAdmins (20101010110848)
+Migrating to CreateVideoResources (20101016163903)
+Migrating to CreatePrograms (20101016165149)
+Migrating to CreateCaptions (20101018154605)
+  [1m[35mSQL (41.6ms)[0m  CREATE TABLE `captions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `location` varchar(255), `format` varchar(255), `package` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `schema_migrations`[0m
+  [1m[35mSQL (4.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101018154605')
+Migrating to CreatePackages (20101018163113)
+  [1m[36mSQL (15.5ms)[0m  [1mCREATE TABLE `packages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `location` varchar(255), `status` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (9.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101018163113')
+Migrating to CreateRawVideos (20101031212851)
+  [1m[36mSQL (0.2ms)[0m  [1mCREATE TABLE `raw_videos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `location` varchar(255), `package` varchar(255), `need_bitrates` varchar(255), `exist_bitrates` varchar(255), `status` varchar(255), `caption_id` int(11)) ENGINE=InnoDB[0m
+Mysql::Error: Table 'raw_videos' already exists: CREATE TABLE `raw_videos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `location` varchar(255), `package` varchar(255), `need_bitrates` varchar(255), `exist_bitrates` varchar(255), `status` varchar(255), `caption_id` int(11)) ENGINE=InnoDB
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (16.9ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `schema_migrations`[0m
+  [1m[35mSQL (49.9ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to DeviseCreateAdmins (20101010110848)
+  [1m[35mSQL (16.1ms)[0m  CREATE TABLE `admins` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(128) DEFAULT '' NOT NULL, `password_salt` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `remember_token` varchar(255), `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `admins`[0m
+  [1m[35mSQL (66.8ms)[0m  CREATE UNIQUE INDEX `index_admins_on_email` ON `admins` (`email`)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `admins`[0m
+  [1m[35mSQL (59.5ms)[0m  CREATE UNIQUE INDEX `index_admins_on_reset_password_token` ON `admins` (`reset_password_token`)
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `schema_migrations`[0m
+  [1m[35mSQL (6.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101010110848')
+Migrating to CreateVideoResources (20101016163903)
+  [1m[36mSQL (17.8ms)[0m  [1mCREATE TABLE `video_resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `raw_video_id` int(11), `location` varchar(255), `bitrate` int(11)) ENGINE=InnoDB[0m
+  [1m[35mSQL (10.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101016163903')
+Migrating to CreatePrograms (20101016165149)
+  [1m[36mSQL (30.4ms)[0m  [1mCREATE TABLE `programs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `length` int(11), `clip_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (13.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101016165149')
+Migrating to CreateCaptions (20101018154605)
+  [1m[36mSQL (22.5ms)[0m  [1mCREATE TABLE `captions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `location` varchar(255), `format` varchar(255), `package` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (3.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101018154605')
+Migrating to CreatePackages (20101018163113)
+  [1m[36mSQL (16.3ms)[0m  [1mCREATE TABLE `packages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `location` varchar(255), `status` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (14.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101018163113')
+Migrating to CreateRawVideos (20101031212851)
+  [1m[36mSQL (20.1ms)[0m  [1mCREATE TABLE `raw_videos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `location` varchar(255), `package` varchar(255), `need_bitrates` varchar(255), `exist_bitrates` varchar(255), `status` varchar(255), `caption_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35mSQL (11.8ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101031212851')
+Migrating to CreateClips (20101101003740)
+  [1m[36mSQL (13.4ms)[0m  [1mCREATE TABLE `clips` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `raw_video_id` int(11), `location` varchar(255), `length` int(11), `bitrate` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (6.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101101003740')
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.5ms)[0m  describe `admins`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `admins`[0m
+  [1m[35mSQL (1.3ms)[0m  describe `captions`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `captions`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `clips`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `clips`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `packages`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `packages`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `programs`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `programs`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `raw_videos`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `raw_videos`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `video_resources`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `video_resources`[0m
