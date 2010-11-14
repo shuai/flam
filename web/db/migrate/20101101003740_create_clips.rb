@@ -3,7 +3,7 @@ class CreateClips < ActiveRecord::Migration
     create_table :clips do |t|
       t.references :raw_video
       t.string :location #location
-      t.integer :length #length of the clip
+      t.integer :duration #length of the clip
       t.integer :bitrate #bitrate
       t.timestamps
     end

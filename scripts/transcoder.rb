@@ -5,46 +5,60 @@
 require "mysql"
 require "common.rb"
 
-def getcliplocation(raw_video_id, bitrate)
-    "#{Clip_dir}#{raw_video_id}/#{bitrate}.f4v"
-end
+class Task
+    attr_accessor :VideoID, :Location, :Bitrate
 
-def transcode(raw_video_location, clip_location, bitrate)
-    #TODO here call ffmpeg to transcode
-end
+    def initialize(id,location,bitrate)
+        @VideoID = id
+        @Location = location
+        @Bitrate = bitrate
 
-def task(id, location, target_bitrate, exist_bitrate)
-    puts "==========================="
-    puts "transcode '#{location}'"
-    puts "target bitrates #{target_bitrate.join ' '}"
+    end
     
-    failed_clips = []
-    succeed_clips = []
-
-    target_bitrate.each do |bitrate|
-        clip_location = getcliplocation id, bitrate
-        if transcode(location, clip_location, bitrate)
-            $my.query("insert into #{Sql_tbl_clip}(#{Clip_location}, #{Clip_bitrate}, #{Clip_rawvideo}) VALUES(#{clip_location}, #{bitrate}, #{id})")
-            succeed_clips << bitrate
+    def start
+        puts "==========================="
+        puts "transcoding '#{location}' target bitrates #{target_bitrate}"
+        
+        if transcode?
+            $my.query("insert into #{Sql_tbl_clip}(location,duration,bitrate) values('#{getcliplocation}',0,#{@bitrate});")
+            set_status "done"
         else
-            failed_clips << bitrate
+            set_status "failed"
         end
+        
+    end
+    
+    def set_status(status)
+        $my.query("update #{Sql_tbl_task} set status=#{status} where id = #{@VideoID};")
+    end
+    
+    def getcliplocation
+    "#{Clip_dir}#{@VideoID}/#{@Bitrate}.f4v"
+    end
+    
+    def transcode
+        #TODO here call ffmpeg to transcode
+        IO.popen("ffmpeg -i #{@Location} -vcodec libx264 -acodec libfaac #{dest_location}}")
     end
 
-    # TODO log failed task
-    $my.query("update #{Sql_tbl_raw_resource} set #{Rawvideo_needbitrates}=null, #{Rawvideo_existbitrates}=#{succeed_clips.join ','} where id == #{id}")
 end
 
 if __FILE__ == $0
-    $my = Mysql::new(Sql_host, Sql_user, Sql_pswd, Sql_database)
 
     while true
-       res = $my.query("select id,#{Rawvideo_location},#{Rawvideo_needbitrates},#{Rawvideo_existbitrates} from #{Sql_tbl_raw_resource} where #{Rawvideo_needbitrates} is not null")
+       $my = Mysql::new(Sql_host, Sql_user, Sql_pswd, Sql_database)
+
+       sql = ("select r.id,r.location,t.parameter,t.type,t.status,t.priority from #{Sql_tbl_raw_resource} as r, #{Sql_tbl_task} as t " +
+               "where r.id = t.raw_videos_id and t.type = 'transcode' and t.status = 'new' " +
+               "order by t.priority limit 5")
+                       
+       res = $my.query(sql)
        res.each do |row|
-            need_bitrates = row[2].split ","  
-            exist_bitrates = row[3].split ","  
-            task row[0], row[1], need_bitrates , exist_bitrates  
+            task = Task.new row[0], row[1], row[2]
+            task.start
        end
+       
+       $my = nil
 
        puts "idling"
        sleep 10

@@ -10,7 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101101003740) do
+ActiveRecord::Schema.define(:version => 20101114003324) do
+
+  create_table "admin_tasks", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "raw_videos_id"
+    t.string   "type"
+    t.string   "parameter"
+    t.string   "status"
+    t.integer  "priority"
+  end
 
   create_table "admins", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
@@ -61,6 +71,20 @@ ActiveRecord::Schema.define(:version => 20101101003740) do
     t.integer  "clip_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "raw_video_streams", :force => true do |t|
+    t.integer "raw_video_id"
+    t.integer "index"
+    t.string  "codec"
+    t.string  "codec_long"
+    t.string  "type"
+    t.integer "sample_rate"
+    t.integer "channels"
+    t.integer "bits_per_sample"
+    t.integer "avg_framerate"
+    t.integer "start_time"
+    t.integer "duration"
   end
 
   create_table "raw_videos", :force => true do |t|

@@ -4435,3 +4435,41 @@ Migrating to CreateClips (20101101003740)
   [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `raw_videos`[0m
   [1m[35mSQL (0.3ms)[0m  describe `video_resources`
   [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `video_resources`[0m
+  [1m[36mSQL (231.5ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (306.5ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to DeviseCreateAdmins (20101010110848)
+Migrating to CreateVideoResources (20101016163903)
+Migrating to CreatePrograms (20101016165149)
+Migrating to CreateCaptions (20101018154605)
+Migrating to CreatePackages (20101018163113)
+Migrating to CreateRawVideos (20101031212851)
+Migrating to CreateClips (20101101003740)
+Migrating to CreateRawVideoStreams (20101113233547)
+  [1m[35mSQL (217.1ms)[0m  CREATE TABLE `raw_video_streams` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `raw_video_id` int(11), `index` int(11), `codec` varchar(255), `codec_long` varchar(255), `type` varchar(255), `sample_rate` int(11), `channels` int(11), `bits_per_sample` int(11), `avg_framerate` int(11), `start_time` int(11), `duration` int(11)) ENGINE=InnoDB
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `schema_migrations`[0m
+  [1m[35mSQL (10.7ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101113233547')
+Migrating to CreateAdminTasks (20101114003324)
+  [1m[36mSQL (33.2ms)[0m  [1mCREATE TABLE `admin_tasks` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime, `raw_videos_id` int(11), `type` varchar(255), `parameter` varchar(255), `status` varchar(255), `priority` int(11)) ENGINE=InnoDB[0m
+  [1m[35mSQL (1.6ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101114003324')
+  [1m[36mSQL (41.6ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (57.7ms)[0m  describe `admin_tasks`
+  [1m[36mSQL (0.6ms)[0m  [1mSHOW KEYS FROM `admin_tasks`[0m
+  [1m[35mSQL (0.6ms)[0m  describe `admins`
+  [1m[36mSQL (25.8ms)[0m  [1mSHOW KEYS FROM `admins`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `captions`
+  [1m[36mSQL (0.4ms)[0m  [1mSHOW KEYS FROM `captions`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `clips`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `clips`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `packages`
+  [1m[36mSQL (7.9ms)[0m  [1mSHOW KEYS FROM `packages`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `programs`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `programs`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `raw_video_streams`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `raw_video_streams`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `raw_videos`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `raw_videos`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `video_resources`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `video_resources`[0m

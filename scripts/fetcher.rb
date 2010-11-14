@@ -10,18 +10,10 @@ require 'ftools'
 require "mysql"
 
 require "common.rb"
+require "video.rb"
 
 def is_video(name)
-
-    Video_extension.each do |ext|
-        if name.length >= ext.length + 1 
-            if name[name.length-ext.length,ext.length] == ext
-                return true
-            end
-        end
-    end
-    
-    false        
+    Video.is_video? name      
 end
 
 def is_caption(name)
@@ -35,23 +27,38 @@ def is_caption(name)
 end
 
 #视频文件写到raw_video数据库
+def save_video(path, package_id)
+
+    v = Video.new path
+    if v.is_video?
+        sql_query = "insert into #{Sql_tbl_raw_resource}(location,package,bitrate,title,format,duration,size,author,copyright,comment)"
+                    "VALUES('#{path}','#{package_id}',#{v.Bitrate},'#{v.Title}','#{v.Format}',#{v.Duration},#{v.Size},'#{v.Author}','#{v.Copyright}','#{v.Comment}');"
+        res = $my.query(sql_query)
+        
+        v.Streams.each do |s|
+            sql_query = "insert into #{Sql_tbl_raw_video_stream}(raw_video_id,index,codec,codec_long,type,sample_rate,channels,bits_per_sample,avg_framerate,start_time,duration)"
+                        "values(#{res.insert_id}, #{s.Index}, '#{s.Codec}','#{s.CodecLong}', '#{s.Type}', #{s.SampleRate}, #{s.Channels}, #{s.BitPerSample}, #{s.AvgFramerate}, #{s.StartTime}, #{s.Duration})"
+            $my.query(sql_query) 
+        end
+    else
+        puts "Not a video #{path}"
+    end
+
+end
+
 def save_resources(videos, captions, package_id)
     if videos.size + captions.size > 0
        puts "Found #{videos.size} videos and #{captions.size} captions"
     else
        return
     end
-
-    my = Mysql::new(Sql_host, Sql_user, Sql_pswd, Sql_database)
     
-    puts "wtf"
     videos.each do |v|
-        sql_query = "insert into #{Sql_tbl_raw_resource}(title,location,package) VALUES('#{v}','#{v}','#{package_id}');"
-        res = my.query(sql_query)
+        save_video(v,package_id)
     end
     
     captions.each do |v|
-        res = my.query("insert into #{Sql_tbl_captions}(location,package) VALUES('#{v}',#{package_id});")
+        res = $my.query("insert into #{Sql_tbl_captions}(location,package) VALUES('#{v}',#{package_id});")
     end
         
 end
@@ -106,10 +113,10 @@ def parse_resource(dir)
 end
 
 if __FILE__ == $0
-    my = Mysql::new(Sql_host, Sql_user, Sql_pswd, Sql_database)
     
     while true
-        res = my.query("select * from #{Sql_tbl_package} where status = 'new'")
+        $my = Mysql::new(Sql_host, Sql_user, Sql_pswd, Sql_database)
+        res = $my.query("select * from #{Sql_tbl_package} where status = 'new'")
         
         res.each do |row|
           loc = row[1] #location
@@ -122,7 +129,9 @@ if __FILE__ == $0
           end
         end
         
-        puts 'idling'
+        $my = nil
+        
+        puts 'idling ...'
         sleep 100
     end
 end
