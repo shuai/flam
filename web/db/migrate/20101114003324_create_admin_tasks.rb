@@ -3,14 +3,17 @@ class CreateAdminTasks < ActiveRecord::Migration
     create_table :admin_tasks do |t|
 
       t.timestamps
-
-
-      t.references :raw_videos
-      t.string :type
-      t.string :parameter
+      t.string :type     
       t.string :status
       t.integer :priority
+            
+      #Transcoding task
+      t.integer :raw_videos_id
+      t.integer :bitrate
       
+      #package task
+      t.string :location
+
     end
   end
 

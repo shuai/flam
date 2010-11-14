@@ -15,11 +15,12 @@ ActiveRecord::Schema.define(:version => 20101114003324) do
   create_table "admin_tasks", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "raw_videos_id"
     t.string   "type"
-    t.string   "parameter"
     t.string   "status"
     t.integer  "priority"
+    t.integer  "raw_videos_id"
+    t.integer  "bitrate"
+    t.string   "location"
   end
 
   create_table "admins", :force => true do |t|
@@ -52,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20101114003324) do
   create_table "clips", :force => true do |t|
     t.integer  "raw_video_id"
     t.string   "location"
-    t.integer  "length"
+    t.integer  "duration"
     t.integer  "bitrate"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -88,13 +89,17 @@ ActiveRecord::Schema.define(:version => 20101114003324) do
   end
 
   create_table "raw_videos", :force => true do |t|
-    t.string  "title"
     t.string  "location"
     t.string  "package"
-    t.string  "need_bitrates"
-    t.string  "exist_bitrates"
+    t.integer "bitrate"
+    t.string  "title"
+    t.string  "format"
+    t.integer "duration"
+    t.integer "size"
+    t.string  "author"
+    t.string  "copyright"
+    t.string  "comment"
     t.string  "status"
-    t.integer "caption_id"
   end
 
   create_table "video_resources", :force => true do |t|

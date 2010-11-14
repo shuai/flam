@@ -1,3 +1,6 @@
+require "video.rb"
+require "admin_task.rb"
+
 class Admin::PackagesController < ApplicationController
   #before_filter :authenticate_admin!
     
@@ -42,13 +45,17 @@ class Admin::PackagesController < ApplicationController
   # POST /packages
   # POST /packages.xml
   def create
-    @package = Package.new(:location => params[:location], :status => "new")
-    
+    @package = Package.new
+    @task = PackageTask.new(:status => "new")  
+        
     respond_to do |format|
-      if @package.save
-        format.html { redirect_to([:admin,@package], :notice => 'Package was successfully created.') }
+      if (File.directory?(params[:location]) or Video.is_video?(params[:location])) and @task.save
+        format.html { redirect_to(admin_root_path, :notice => 'Package was successfully created.') }
         format.xml  { render :xml => @package, :status => :created, :location => @package }
       else
+        if @package.errors.size == 0
+            @package.errors["Error"] = "The path is not a directory or video file."
+        end
         format.html { render :action => "new" }
         format.xml  { render :xml => @package.errors, :status => :unprocessable_entity }
       end

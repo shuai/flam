@@ -11,9 +11,14 @@
     </div>
   <% end %>
 
+  <% if @package.id %>
   ID: <%= @package.id %> <br>
+  <% end %>
   Location: <%= text_field_tag(:location) %> <br>
+  
+  <% if @package.id %>
   Status: <%= @package.status %>
+  <% end %>
   
   <div class="actions">
     <%= f.submit %>

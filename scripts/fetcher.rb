@@ -11,6 +11,7 @@ require "mysql"
 
 require "common.rb"
 require "video.rb"
+require "models.rb"
 
 def is_video(name)
     Video.is_video? name      
@@ -31,19 +32,23 @@ def save_video(path, package_id)
 
     v = Video.new path
     if v.is_video?
-        sql_query = "insert into #{Sql_tbl_raw_resource}(location,package,bitrate,title,format,duration,size,author,copyright,comment)"
-                    "VALUES('#{path}','#{package_id}',#{v.Bitrate},'#{v.Title}','#{v.Format}',#{v.Duration},#{v.Size},'#{v.Author}','#{v.Copyright}','#{v.Comment}');"
-        res = $my.query(sql_query)
+        new_video = RawVideo.new(:location => path, :package => package_id, :title => v.Title, :format => v.Format, :duration => v.Duration,
+                                :size => v.Size, :author => v.Author, :copyright => v.Copyright, :comment => v.Comment)
+        
+
         
         v.Streams.each do |s|
-            sql_query = "insert into #{Sql_tbl_raw_video_stream}(raw_video_id,index,codec,codec_long,type,sample_rate,channels,bits_per_sample,avg_framerate,start_time,duration)"
-                        "values(#{res.insert_id}, #{s.Index}, '#{s.Codec}','#{s.CodecLong}', '#{s.Type}', #{s.SampleRate}, #{s.Channels}, #{s.BitPerSample}, #{s.AvgFramerate}, #{s.StartTime}, #{s.Duration})"
-            $my.query(sql_query) 
+            new_video.raw_video_streams.create(:index => s.Index, :codec => s.Codec, :codec_long => s.CodecLong, :type => s.Type, 
+                                               :sample_rate => s.SampleRate, :channels => s.Channels, :bits_per_sample => s.BitPerSample,
+                                               :avg_framerate => s.AvgFramerate, :start_time => s.StartTime, :duration => s.Duration)
+        end
+        
+        if !new_video.save
+            puts "Failed to write video record"
         end
     else
         puts "Not a video #{path}"
     end
-
 end
 
 def save_resources(videos, captions, package_id)
@@ -58,7 +63,7 @@ def save_resources(videos, captions, package_id)
     end
     
     captions.each do |v|
-        res = $my.query("insert into #{Sql_tbl_captions}(location,package) VALUES('#{v}',#{package_id});")
+        Captions.new(:location => v, :package => package_id).save
     end
         
 end
@@ -103,7 +108,7 @@ def parse_resource(dir)
           
         if File.directory? dir or File.file? dir and is_video dir
             system "mkdir #{Raw_files_dir}#{uuid}/"
-	    system "mv #{dir} #{Raw_files_dir}#{uuid}/"
+	        system "mv #{dir} #{Raw_files_dir}#{uuid}/"
             handle_directory "#{Raw_files_dir}#{uuid}/", uuid    
 	else
             raise  "'#{dir}' is not a valid path"
@@ -115,21 +120,17 @@ end
 if __FILE__ == $0
     
     while true
-        $my = Mysql::new(Sql_host, Sql_user, Sql_pswd, Sql_database)
-        res = $my.query("select * from #{Sql_tbl_package} where status = 'new'")
+        tasks = PackageTask.where(:status => 'new').order("priority").limit(5)
         
-        res.each do |row|
-          loc = row[1] #location
+        tasks.each do |task|
           puts "================================================="
-          puts "New task '#{loc}' ..."
+          puts "Walk through package '#{task.location}' ..."
           begin 
-            parse_resource(loc)
+            parse_resource(task.location)
           rescue => e
             puts "task failed", e
           end
         end
-        
-        $my = nil
         
         puts 'idling ...'
         sleep 100

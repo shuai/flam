@@ -6,7 +6,39 @@ Signed in as <%= current_admin.email %>.
 
 <h2>Admin portal</h2>
 
+
+
+
 <h3>Package</h3>
+
+<% if @package_ing.size != 0 %>
+   <% @package_ing.each do |p| %>
+   -> <%= p.location %>
+   <% end %>
+<% else %>
+    No package is running
+<% end %>
+
+<h4>queue</h4>
+
+<% if @package_tasks.size != 0 %>
+    <table>
+    <tr>
+    <td>Location</td>
+    <td>Status</td>
+    </tr>
+    <% @package_tasks.each do |task| %>
+        <tr>
+        <td><%= task.location %></td>
+        <td><%= task.status %></td>
+        </tr>
+    <% end %>
+    </table>
+<% else %>
+Nothing in the queue <br>
+<% end %>
+
+
 <%= link_to "New package", new_admin_package_path %>
 <br>
 <% @packages.each do |package| %>

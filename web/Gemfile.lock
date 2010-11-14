@@ -77,6 +77,6 @@ PLATFORMS
 
 DEPENDENCIES
   devise
-  mysql (= 2.8.1)
-  rails (= 3.0.0)
+  mysql
+  rails
   sqlite3-ruby

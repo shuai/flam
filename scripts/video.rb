@@ -29,6 +29,10 @@ class Video
         stdin, stdout, stderr = Open3.popen3("ffprobe -show_format -show_streams #{filename}")
         output = stdout.read(10240)
         
+        if output.nil?
+            return
+        end
+        
         ret = /\[FORMAT\](.*)\[\/FORMAT\]/m.match output
         if !ret.nil?
             format_values = parse_ini ret[1]
