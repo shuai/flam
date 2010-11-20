@@ -4473,3 +4473,1174 @@ Migrating to CreateAdminTasks (20101114003324)
   [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `raw_videos`[0m
   [1m[35mSQL (0.3ms)[0m  describe `video_resources`
   [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `video_resources`[0m
+
+
+Started GET "/admin/package" for 127.0.0.1 at Sun Nov 14 11:28:32 -0800 2010
+
+ActionController::RoutingError (No route matches "/admin/package"):
+  
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (0.9ms)
+
+
+Started GET "/admin/packages" for 127.0.0.1 at Sun Nov 14 11:28:39 -0800 2010
+  Processing by Admin::PackagesController#index as HTML
+  [1m[36mSQL (192.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mPackage Load (160.2ms)[0m  SELECT `packages`.* FROM `packages`
+Rendered admin/packages/index.html.erb within layouts/application (35.1ms)
+Completed 200 OK in 774ms (Views: 146.8ms | ActiveRecord: 352.5ms)
+
+
+Started GET "/admin/packages/new" for 127.0.0.1 at Sun Nov 14 11:28:48 -0800 2010
+  Processing by Admin::PackagesController#new as HTML
+Rendered admin/packages/_form.html.erb (6.0ms)
+Rendered admin/packages/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 234ms (Views: 28.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 11:28:54 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"22", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+Completed   in 93ms
+
+NameError (uninitialized constant Admin::PackagesController::Video):
+  app/controllers/admin/packages_controller.rb:48:in `create'
+  app/controllers/admin/packages_controller.rb:47:in `create'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (312.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (359.2ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 11:35:27 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"22", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+Completed   in 211ms
+
+NoMethodError (undefined method `is_video' for Video:Class):
+  app/controllers/admin/packages_controller.rb:50:in `create'
+  app/controllers/admin/packages_controller.rb:49:in `create'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (11.3ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (373.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (394.5ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 11:35:43 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"22", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+Completed   in 1348ms
+
+NoMethodError (private method `scan' called for nil:NilClass):
+  app/helpers/video.rb:49:in `initialize'
+  app/helpers/video.rb:75:in `new'
+  app/helpers/video.rb:75:in `is_video?'
+  app/controllers/admin/packages_controller.rb:50:in `create'
+  app/controllers/admin/packages_controller.rb:49:in `create'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (18.9ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (297.3ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (382.8ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 11:38:06 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"22", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+Completed   in 386ms
+
+NoMethodError (private method `scan' called for nil:NilClass):
+  app/helpers/video.rb:49:in `initialize'
+  app/helpers/video.rb:75:in `new'
+  app/helpers/video.rb:75:in `is_video?'
+  app/controllers/admin/packages_controller.rb:50:in `create'
+  app/controllers/admin/packages_controller.rb:49:in `create'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (338.4ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (347.1ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 11:38:12 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"22", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+Completed   in 266ms
+
+NoMethodError (private method `scan' called for nil:NilClass):
+  app/helpers/video.rb:49:in `initialize'
+  app/helpers/video.rb:75:in `new'
+  app/helpers/video.rb:75:in `is_video?'
+  app/controllers/admin/packages_controller.rb:50:in `create'
+  app/controllers/admin/packages_controller.rb:49:in `create'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.9ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (364.2ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (374.3ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 11:38:31 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"22", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+Completed   in 262ms
+
+NoMethodError (private method `scan' called for nil:NilClass):
+  app/helpers/video.rb:49:in `initialize'
+  app/helpers/video.rb:75:in `new'
+  app/helpers/video.rb:75:in `is_video?'
+  app/controllers/admin/packages_controller.rb:50:in `create'
+  app/controllers/admin/packages_controller.rb:49:in `create'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (2.1ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (290.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (299.7ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 11:38:39 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"22", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+Completed   in 198ms
+
+NoMethodError (private method `scan' called for nil:NilClass):
+  app/helpers/video.rb:49:in `initialize'
+  app/helpers/video.rb:75:in `new'
+  app/helpers/video.rb:75:in `is_video?'
+  app/controllers/admin/packages_controller.rb:50:in `create'
+  app/controllers/admin/packages_controller.rb:49:in `create'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (276.1ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (285.6ms)
+
+
+Started GET "/admin/packages" for 127.0.0.1 at Sun Nov 14 11:41:47 -0800 2010
+  Processing by Admin::PackagesController#index as HTML
+  [1m[36mSQL (196.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mPackage Load (18.5ms)[0m  SELECT `packages`.* FROM `packages`
+Rendered admin/packages/index.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 417ms (Views: 69.4ms | ActiveRecord: 214.7ms)
+
+
+Started GET "/admin/packages/new" for 127.0.0.1 at Sun Nov 14 11:41:51 -0800 2010
+  Processing by Admin::PackagesController#new as HTML
+Rendered admin/packages/_form.html.erb (7.9ms)
+Rendered admin/packages/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 138ms (Views: 29.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 11:41:53 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"fdg", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+Rendered admin/packages/_form.html.erb (6.8ms)
+Rendered admin/packages/new.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 1103ms (Views: 16.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 11:44:30 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"fdg", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+ERROR: compiling _app_views_admin_packages__form_html_erb__446776126__617948208_529456 RAISED compile error
+/home/shuai/work/flam/web/app/views/admin/packages/_form.html.erb:14: syntax error, unexpected ')', expecting kTHEN or ':' or '\n' or ';'
+...fer.append= ( if @package.id );@output_buffer.safe_concat('
+                              ^
+/home/shuai/work/flam/web/app/views/admin/packages/_form.html.erb:16: syntax error, unexpected kEND
+  ');@output_buffer.append= ( end );@output_buffer.safe_concat('
+                                 ^
+/home/shuai/work/flam/web/app/views/admin/packages/_form.html.erb:23: syntax error, unexpected kEND, expecting ')'
+'); end 
+       ^
+/home/shuai/work/flam/web/app/views/admin/packages/_form.html.erb:25: syntax error, unexpected kENSURE, expecting ')'
+/home/shuai/work/flam/web/app/views/admin/packages/_form.html.erb:27: syntax error, unexpected kEND, expecting ')'
+Function body:           def _app_views_admin_packages__form_html_erb__446776126__617948208_529456(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "admin/packages/_form";_old_output_buffer = @output_buffer;form = local_assigns[:form];;@output_buffer = ActionView::OutputBuffer.new;@output_buffer.append=  form_for([:admin, @package]) do |f| @output_buffer.safe_concat('
+');   if @package.errors.any? 
+@output_buffer.safe_concat('    <div id="error_explanation">
+      <h2>');@output_buffer.append= ( pluralize(@package.errors.count, "error") );@output_buffer.safe_concat(' prohibited this package from being saved:</h2>
+
+      <ul>
+');@output_buffer.append_if_string=        @package.errors.full_messages.each do |msg| 
+@output_buffer.safe_concat('        <li>');@output_buffer.append= ( msg );@output_buffer.safe_concat('</li>
+');       end 
+@output_buffer.safe_concat('      </ul>
+    </div>
+');   end 
+@output_buffer.safe_concat('
+  ');@output_buffer.append= ( if @package.id );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  ID: ');@output_buffer.append= ( @package.id );@output_buffer.safe_concat(' <br>
+  ');@output_buffer.append= ( end );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  Location: ');@output_buffer.append= ( text_field_tag(:location) );@output_buffer.safe_concat(' <br>
+  Status: ');@output_buffer.append= ( @package.status );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  
+  <div class="actions">
+    ');@output_buffer.append= ( f.submit );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('  </div>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/shuai/work/flam/web/app/views/admin/packages/_form.html.erb:27:in `compile'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_view/template.rb:134:in `render'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/notifications.rb:54:in `instrument'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_view/template.rb:127:in `render'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_view/render/partials.rb:294:in `render_partial'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_view/render/partials.rb:223:in `render'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/notifications.rb:52:in `instrument'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/notifications.rb:52:in `instrument'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_view/render/partials.rb:221:in `render'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_view/render/partials.rb:334:in `_render_partial'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_view/render/rendering.rb:31:in `render'
+/home/shuai/work/flam/web/app/views/admin/packages/new.html.erb:3:in `_app_views_admin_packages_new_html_erb___913108368__617943418_0'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_view/template.rb:135:in `send'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_view/template.rb:135:in `render'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/notifications.rb:54:in `instrument'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_view/template.rb:127:in `render'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_view/render/rendering.rb:59:in `_render_template'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/notifications.rb:52:in `instrument'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/notifications.rb:52:in `instrument'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_view/render/rendering.rb:56:in `_render_template'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_view/render/rendering.rb:26:in `render'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/abstract_controller/rendering.rb:114:in `_render_template'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/abstract_controller/rendering.rb:92:in `render'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/rendering.rb:17:in `render'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/var/lib/gems/1.8/gems/activerecord-3.0.0/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/home/shuai/work/flam/web/app/controllers/admin/packages_controller.rb:57:in `create'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/mime_responds.rb:192:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+/home/shuai/work/flam/web/app/controllers/admin/packages_controller.rb:49:in `create'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/abstract_controller/base.rb:150:in `process_action'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/callbacks.rb:435:in `_run__945615735__process_action__524098549__callbacks'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/callbacks.rb:409:in `send'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/callbacks.rb:93:in `send'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/notifications.rb:52:in `instrument'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/notifications.rb:52:in `instrument'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/abstract_controller/base.rb:119:in `process'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/abstract_controller/rendering.rb:40:in `process'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal.rb:133:in `dispatch'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal.rb:173:in `action'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/var/lib/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `call'
+/var/lib/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `recognize'
+/var/lib/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:82:in `optimized_each'
+/var/lib/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/var/lib/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/var/lib/gems/1.8/gems/warden-0.10.7/lib/warden/manager.rb:35:in `call'
+/var/lib/gems/1.8/gems/warden-0.10.7/lib/warden/manager.rb:34:in `catch'
+/var/lib/gems/1.8/gems/warden-0.10.7/lib/warden/manager.rb:34:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/head.rb:14:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/cookies.rb:287:in `call'
+/var/lib/gems/1.8/gems/activerecord-3.0.0/lib/active_record/query_cache.rb:32:in `call'
+/var/lib/gems/1.8/gems/activerecord-3.0.0/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/var/lib/gems/1.8/gems/activerecord-3.0.0/lib/active_record/query_cache.rb:12:in `cache'
+/var/lib/gems/1.8/gems/activerecord-3.0.0/lib/active_record/query_cache.rb:31:in `call'
+/var/lib/gems/1.8/gems/activerecord-3.0.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+/var/lib/gems/1.8/gems/railties-3.0.0/lib/rails/rack/logger.rb:13:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `synchronize'
+/var/lib/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/static.rb:30:in `call'
+/var/lib/gems/1.8/gems/railties-3.0.0/lib/rails/application.rb:168:in `call'
+/var/lib/gems/1.8/gems/railties-3.0.0/lib/rails/application.rb:77:in `send'
+/var/lib/gems/1.8/gems/railties-3.0.0/lib/rails/application.rb:77:in `method_missing'
+/var/lib/gems/1.8/gems/railties-3.0.0/lib/rails/rack/log_tailer.rb:14:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/var/lib/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:13:in `run'
+/var/lib/gems/1.8/gems/rack-1.2.1/lib/rack/server.rb:213:in `start'
+/var/lib/gems/1.8/gems/railties-3.0.0/lib/rails/commands/server.rb:65:in `start'
+/var/lib/gems/1.8/gems/railties-3.0.0/lib/rails/commands.rb:30
+/var/lib/gems/1.8/gems/railties-3.0.0/lib/rails/commands.rb:27:in `tap'
+/var/lib/gems/1.8/gems/railties-3.0.0/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered admin/packages/_form.html.erb (37.1ms)
+Rendered admin/packages/new.html.erb within layouts/application (62.1ms)
+Completed   in 513ms
+
+ActionView::Template::Error (compile error
+/home/shuai/work/flam/web/app/views/admin/packages/_form.html.erb:14: syntax error, unexpected ')', expecting kTHEN or ':' or '\n' or ';'
+...fer.append= ( if @package.id );@output_buffer.safe_concat('
+                              ^
+/home/shuai/work/flam/web/app/views/admin/packages/_form.html.erb:16: syntax error, unexpected kEND
+  ');@output_buffer.append= ( end );@output_buffer.safe_concat('
+                                 ^
+/home/shuai/work/flam/web/app/views/admin/packages/_form.html.erb:23: syntax error, unexpected kEND, expecting ')'
+'); end 
+       ^
+/home/shuai/work/flam/web/app/views/admin/packages/_form.html.erb:25: syntax error, unexpected kENSURE, expecting ')'
+/home/shuai/work/flam/web/app/views/admin/packages/_form.html.erb:27: syntax error, unexpected kEND, expecting ')'):
+    11:     </div>
+    12:   <% end %>
+    13: 
+    14:   <%= if @package.id %>
+    15:   ID: <%= @package.id %> <br>
+    16:   <%= end %>
+    17:   Location: <%= text_field_tag(:location) %> <br>
+  app/views/admin/packages/_form.html.erb:27:in `compile'
+  app/views/admin/packages/new.html.erb:3:in `_app_views_admin_packages_new_html_erb___913108368__617943418_0'
+  app/controllers/admin/packages_controller.rb:57:in `create'
+  app/controllers/admin/packages_controller.rb:49:in `create'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (326.9ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (336.7ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 11:44:52 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"fdg", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+Rendered admin/packages/_form.html.erb (27.1ms)
+Rendered admin/packages/new.html.erb within layouts/application (52.3ms)
+Completed 200 OK in 417ms (Views: 68.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 11:45:29 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"fdg", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+Rendered admin/packages/_form.html.erb (5.8ms)
+Rendered admin/packages/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 830ms (Views: 16.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin/packages" for 127.0.0.1 at Sun Nov 14 11:45:35 -0800 2010
+  Processing by Admin::PackagesController#index as HTML
+  [1m[36mPackage Load (23.1ms)[0m  [1mSELECT `packages`.* FROM `packages`[0m
+Rendered admin/packages/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 77ms (Views: 8.1ms | ActiveRecord: 23.1ms)
+
+
+Started GET "/admin/packages" for 127.0.0.1 at Sun Nov 14 11:45:37 -0800 2010
+  Processing by Admin::PackagesController#index as HTML
+  [1m[35mPackage Load (0.1ms)[0m  SELECT `packages`.* FROM `packages`
+Rendered admin/packages/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 15ms (Views: 7.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 12:01:27 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+Completed   in 7ms
+
+NameError (uninitialized constant Admin::AdminsController::PackageTask):
+  app/controllers/admin/admins_controller.rb:7:in `index'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (317.2ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (325.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 12:02:29 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[36mPackage Load (0.2ms)[0m  [1mSELECT `packages`.* FROM `packages`[0m
+  [1m[35mSQL (238.8ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')) AS subquery
+Rendered admin/admins/index.html.erb within layouts/application (330.8ms)
+Completed   in 566ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    12: <h3>Package</h3>
+    13: 
+    14: <% if @package_ing.size %>
+    15:    <% @package.each do |p| %>
+    16:    -> <%= @package.location %>
+    17:    <% end %>
+    18: <% else %>
+  app/views/admin/admins/index.html.erb:15:in `_app_views_admin_admins_index_html_erb__660298528__617171538_0'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  [1m[36mPackageTask Load (0.3ms)[0m  [1mSELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')[0m
+  [1m[35mPackageTask Load (0.2ms)[0m  SELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'failed')
+  [1m[36mPackageTask Load (0.3ms)[0m  [1mSELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')[0m
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (250.9ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (298.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 12:03:03 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[35mPackage Load (14.6ms)[0m  SELECT `packages`.* FROM `packages`
+Rendered admin/admins/index.html.erb within layouts/application (1.4ms)
+Completed   in 129ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    12: <h3>Package</h3>
+    13: 
+    14: <% if !@package_ing.nil? %>
+    15:    <% @package.each do |p| %>
+    16:    -> <%= @package.location %>
+    17:    <% end %>
+    18: <% else %>
+  app/views/admin/admins/index.html.erb:15:in `_app_views_admin_admins_index_html_erb__660298528__617293138_0'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  [1m[36mPackageTask Load (0.1ms)[0m  [1mSELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')[0m
+  [1m[35mPackageTask Load (0.1ms)[0m  SELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'failed')
+  [1m[36mPackageTask Load (0.1ms)[0m  [1mSELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')[0m
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (310.4ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (320.2ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 12:04:26 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[35mPackage Load (0.2ms)[0m  SELECT `packages`.* FROM `packages`
+  [1m[36mPackageTask Load (0.1ms)[0m  [1mSELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')[0m
+  [1m[35mPackageTask Load (0.1ms)[0m  SELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'failed')
+  [1m[36mPackageTask Load (0.1ms)[0m  [1mSELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')[0m
+Rendered admin/admins/index.html.erb within layouts/application (401.4ms)
+Completed   in 422ms
+
+ActionView::Template::Error (undefined local variable or method `package_tasks' for #<#<Class:0xb66874d0>:0xb6685d74>):
+    20: <% end %>
+    21: 
+    22: <h4>queue</h4>
+    23: <% package_tasks.each do |task| %>
+    24:     
+    25: <% end %>
+    26: 
+  app/views/admin/admins/index.html.erb:23:in `_app_views_admin_admins_index_html_erb__660298528__617338918_0'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (232.3ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (241.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 12:04:56 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[35mPackage Load (0.1ms)[0m  SELECT `packages`.* FROM `packages`
+  [1m[36mPackageTask Load (0.1ms)[0m  [1mSELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')[0m
+  [1m[35mPackageTask Load (0.1ms)[0m  SELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')
+Rendered admin/admins/index.html.erb within layouts/application (35.4ms)
+Completed 200 OK in 54ms (Views: 40.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 12:06:05 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[36mPackage Load (31.4ms)[0m  [1mSELECT `packages`.* FROM `packages`[0m
+  [1m[35mPackageTask Load (0.1ms)[0m  SELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')
+  [1m[36mSQL (10.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery[0m
+  [1m[35mPackageTask Load (0.1ms)[0m  SELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')
+Rendered admin/admins/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 67ms (Views: 11.0ms | ActiveRecord: 41.7ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 12:06:25 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[36mPackage Load (0.2ms)[0m  [1mSELECT `packages`.* FROM `packages`[0m
+  [1m[35mPackageTask Load (0.1ms)[0m  SELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery[0m
+Rendered admin/admins/index.html.erb within layouts/application (4.9ms)
+Completed 200 OK in 21ms (Views: 9.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 12:06:43 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[35mPackage Load (8.5ms)[0m  SELECT `packages`.* FROM `packages`
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery
+Rendered admin/admins/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 37ms (Views: 16.9ms | ActiveRecord: 8.6ms)
+
+
+Started GET "/admin/packages/new" for 127.0.0.1 at Sun Nov 14 12:07:05 -0800 2010
+  Processing by Admin::PackagesController#new as HTML
+Rendered admin/packages/_form.html.erb (6.3ms)
+Rendered admin/packages/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 143ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 12:07:11 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"/va", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+Completed   in 5ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute: location):
+  app/controllers/admin/packages_controller.rb:47:in `new'
+  app/controllers/admin/packages_controller.rb:47:in `create'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (253.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (312.7ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 12:08:34 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"/var", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+Completed   in 1ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute: location):
+  app/controllers/admin/packages_controller.rb:47:in `new'
+  app/controllers/admin/packages_controller.rb:47:in `create'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (237.6ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (247.7ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 12:09:46 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+Completed   in 1ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute: location):
+  app/controllers/admin/packages_controller.rb:47:in `new'
+  app/controllers/admin/packages_controller.rb:47:in `create'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (235.2ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (244.7ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 12:10:08 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+Completed   in 1ms
+
+ActiveRecord::UnknownAttributeError (unknown attribute: location):
+  app/controllers/admin/packages_controller.rb:48:in `new'
+  app/controllers/admin/packages_controller.rb:48:in `create'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (303.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (312.9ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 12:10:39 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+Rendered admin/packages/_form.html.erb (387.1ms)
+Rendered admin/packages/new.html.erb within layouts/application (390.3ms)
+Completed   in 2003ms
+
+ActionView::Template::Error (undefined method `admin_package_tasks_path' for #<#<Class:0xb6684e60>:0xb6683f9c>):
+    1: <%= form_for([:admin, @package]) do |f| %>
+    2:   <% if @package.errors.any? %>
+    3:     <div id="error_explanation">
+    4:       <h2><%= pluralize(@package.errors.count, "error") %> prohibited this package from being saved:</h2>
+  app/views/admin/packages/_form.html.erb:1:in `_app_views_admin_packages__form_html_erb__446776126__617347398_529456'
+  app/views/admin/packages/new.html.erb:3:in `_app_views_admin_packages_new_html_erb___913108368__617342618_0'
+  app/controllers/admin/packages_controller.rb:58:in `create'
+  app/controllers/admin/packages_controller.rb:50:in `create'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (225.5ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (234.9ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 12:59:58 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+Rendered admin/packages/_form.html.erb (25.0ms)
+Rendered admin/packages/new.html.erb within layouts/application (34.1ms)
+Completed 200 OK in 2014ms (Views: 146.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 13:00:14 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"eer", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+Rendered admin/packages/_form.html.erb (19.5ms)
+Rendered admin/packages/new.html.erb within layouts/application (33.9ms)
+Completed 200 OK in 649ms (Views: 65.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 13:00:19 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"/var", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (18.9ms)[0m  describe `admin_tasks`
+  [1m[36mSQL (182.6ms)[0m  [1mINSERT INTO `admin_tasks` (`created_at`, `parameter`, `priority`, `raw_videos_id`, `status`, `type`, `updated_at`) VALUES ('2010-11-14 21:00:20', NULL, NULL, NULL, 'new', 'PackageTask', '2010-11-14 21:00:20')[0m
+  [1m[35mSQL (135.6ms)[0m  COMMIT
+Completed   in 891ms
+
+NameError (undefined local variable or method `admin_path' for #<Admin::PackagesController:0xb650ad14>):
+  app/controllers/admin/packages_controller.rb:53:in `create'
+  app/controllers/admin/packages_controller.rb:51:in `create'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (448.4ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (463.6ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 13:02:55 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"/var", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (65.1ms)[0m  INSERT INTO `admin_tasks` (`created_at`, `parameter`, `priority`, `raw_videos_id`, `status`, `type`, `updated_at`) VALUES ('2010-11-14 21:02:56', NULL, NULL, NULL, 'new', 'PackageTask', '2010-11-14 21:02:56')
+  [1m[36mSQL (88.8ms)[0m  [1mCOMMIT[0m
+Completed   in 1300ms
+
+NameError (undefined local variable or method `admin_root' for #<Admin::PackagesController:0xb668ac70>):
+  app/controllers/admin/packages_controller.rb:53:in `create'
+  app/controllers/admin/packages_controller.rb:51:in `create'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (251.9ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (301.6ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 13:03:37 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"/var", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (9.3ms)[0m  [1mINSERT INTO `admin_tasks` (`created_at`, `parameter`, `priority`, `raw_videos_id`, `status`, `type`, `updated_at`) VALUES ('2010-11-14 21:03:37', NULL, NULL, NULL, 'new', 'PackageTask', '2010-11-14 21:03:37')[0m
+  [1m[35mSQL (1.4ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 139ms
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 13:03:37 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[36mPackage Load (0.1ms)[0m  [1mSELECT `packages`.* FROM `packages`[0m
+  [1m[35mSQL (98.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')) AS subquery
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery[0m
+  [1m[35mPackageTask Load (0.2ms)[0m  SELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')
+Rendered admin/admins/index.html.erb within layouts/application (133.3ms)
+Completed 200 OK in 308ms (Views: 71.5ms | ActiveRecord: 98.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 13:03:43 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[36mPackage Load (0.4ms)[0m  [1mSELECT `packages`.* FROM `packages`[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery[0m
+  [1m[35mPackageTask Load (0.1ms)[0m  SELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')
+Rendered admin/admins/index.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 32ms (Views: 12.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 13:03:45 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[36mPackage Load (0.4ms)[0m  [1mSELECT `packages`.* FROM `packages`[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery[0m
+  [1m[35mPackageTask Load (0.1ms)[0m  SELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')
+Rendered admin/admins/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 21ms (Views: 10.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 13:06:18 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[36mPackage Load (11.6ms)[0m  [1mSELECT `packages`.* FROM `packages`[0m
+ERROR: compiling _app_views_admin_admins_index_html_erb__660298528__618109818_0 RAISED compile error
+/home/shuai/work/flam/web/app/views/admin/admins/index.html.erb:34: unknown regexp options - tr
+/home/shuai/work/flam/web/app/views/admin/admins/index.html.erb:35: syntax error, unexpected '<'
+<% end );@output_buffer.safe_concat('
+ ^
+/home/shuai/work/flam/web/app/views/admin/admins/index.html.erb:38: syntax error, unexpected kELSE, expecting kEND
+'); else 
+        ^
+/home/shuai/work/flam/web/app/views/admin/admins/index.html.erb:50: syntax error, unexpected kENSURE, expecting kEND
+/home/shuai/work/flam/web/app/views/admin/admins/index.html.erb:52: syntax error, unexpected $end, expecting kEND
+Function body:           def _app_views_admin_admins_index_html_erb__660298528__618109818_0(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "admin/admins/index";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new; if admin_signed_in? 
+@output_buffer.safe_concat('Signed in as ');@output_buffer.append= ( current_admin.email );@output_buffer.safe_concat('.
+');@output_buffer.append= ( link_to 'Sign out', destroy_admin_session_path );@output_buffer.safe_concat('
+'); end 
+@output_buffer.safe_concat('
+
+<h2>Admin portal</h2>
+
+
+
+
+<h3>Package</h3>
+
+'); if @package_ing.size != 0 
+@output_buffer.append_if_string=     @package_ing.each do |p| 
+@output_buffer.safe_concat('   -> ');@output_buffer.append= ( p.location );@output_buffer.safe_concat('
+');    end 
+ else 
+@output_buffer.safe_concat('No package is running
+'); end 
+@output_buffer.safe_concat('
+<h4>queue</h4>
+
+'); if @package_tasks.size != 0 
+@output_buffer.safe_concat('<table>
+<tr>
+<td>Location</td>
+<td>Status</td>
+</tr>
+');@output_buffer.append_if_string=  @package_tasks.each do |task| 
+@output_buffer.safe_concat('<tr>
+<td>');@output_buffer.append= ( task.location );@output_buffer.safe_concat('</td>
+<td>');@output_buffer.append= ( task.status $></td>
+</tr>
+<% end );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('</table>
+
+'); else 
+@output_buffer.safe_concat('Nothing in the queue <br>
+'); end 
+@output_buffer.safe_concat('
+
+');@output_buffer.append= ( link_to "New package", new_admin_package_path );@output_buffer.safe_concat('
+');@output_buffer.safe_concat('<br>
+');@output_buffer.append_if_string=  @packages.each do |package| 
+@output_buffer.safe_concat('  ');@output_buffer.append= (package.id);@output_buffer.safe_concat(' || ');@output_buffer.append= (package.location);@output_buffer.safe_concat(' || ');@output_buffer.append= (package.status);@output_buffer.safe_concat(' 
+');@output_buffer.safe_concat('  ');@output_buffer.append= ( link_to "Delete", [:admin, package], :method => :delete );@output_buffer.safe_concat(' <br>
+'); end 
+@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /home/shuai/work/flam/web/app/views/admin/admins/index.html.erb:52:in `compile'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_view/template.rb:134:in `render'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/notifications.rb:54:in `instrument'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_view/template.rb:127:in `render'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_view/render/rendering.rb:59:in `_render_template'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/notifications.rb:52:in `instrument'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/notifications.rb:52:in `instrument'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_view/render/rendering.rb:56:in `_render_template'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_view/render/rendering.rb:26:in `render'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/abstract_controller/rendering.rb:114:in `_render_template'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/abstract_controller/rendering.rb:92:in `render'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/rendering.rb:17:in `render'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/usr/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:40:in `render'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/var/lib/gems/1.8/gems/activerecord-3.0.0/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/abstract_controller/base.rb:150:in `process_action'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/abstract_controller/callbacks.rb:18:in `process_action'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/callbacks.rb:435:in `_run__629244050__process_action__199225275__callbacks'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/callbacks.rb:409:in `send'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/callbacks.rb:93:in `send'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/notifications.rb:52:in `instrument'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/notifications.rb:52:in `instrument'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/abstract_controller/base.rb:119:in `process'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/abstract_controller/rendering.rb:40:in `process'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal.rb:133:in `dispatch'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_controller/metal.rb:173:in `action'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/var/lib/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `call'
+/var/lib/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `recognize'
+/var/lib/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+/var/lib/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/var/lib/gems/1.8/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/var/lib/gems/1.8/gems/warden-0.10.7/lib/warden/manager.rb:35:in `call'
+/var/lib/gems/1.8/gems/warden-0.10.7/lib/warden/manager.rb:34:in `catch'
+/var/lib/gems/1.8/gems/warden-0.10.7/lib/warden/manager.rb:34:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/head.rb:14:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/cookies.rb:287:in `call'
+/var/lib/gems/1.8/gems/activerecord-3.0.0/lib/active_record/query_cache.rb:32:in `call'
+/var/lib/gems/1.8/gems/activerecord-3.0.0/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/var/lib/gems/1.8/gems/activerecord-3.0.0/lib/active_record/query_cache.rb:12:in `cache'
+/var/lib/gems/1.8/gems/activerecord-3.0.0/lib/active_record/query_cache.rb:31:in `call'
+/var/lib/gems/1.8/gems/activerecord-3.0.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/callbacks.rb:46:in `call'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+/var/lib/gems/1.8/gems/railties-3.0.0/lib/rails/rack/logger.rb:13:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/var/lib/gems/1.8/gems/activesupport-3.0.0/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `synchronize'
+/var/lib/gems/1.8/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/static.rb:30:in `call'
+/var/lib/gems/1.8/gems/railties-3.0.0/lib/rails/application.rb:168:in `call'
+/var/lib/gems/1.8/gems/railties-3.0.0/lib/rails/application.rb:77:in `send'
+/var/lib/gems/1.8/gems/railties-3.0.0/lib/rails/application.rb:77:in `method_missing'
+/var/lib/gems/1.8/gems/railties-3.0.0/lib/rails/rack/log_tailer.rb:14:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/var/lib/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:104:in `service'
+/usr/lib/ruby/1.8/webrick/httpserver.rb:65:in `run'
+/usr/lib/ruby/1.8/webrick/server.rb:173:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:162:in `start_thread'
+/usr/lib/ruby/1.8/webrick/server.rb:95:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `each'
+/usr/lib/ruby/1.8/webrick/server.rb:92:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:23:in `start'
+/usr/lib/ruby/1.8/webrick/server.rb:82:in `start'
+/var/lib/gems/1.8/gems/rack-1.2.1/lib/rack/handler/webrick.rb:13:in `run'
+/var/lib/gems/1.8/gems/rack-1.2.1/lib/rack/server.rb:213:in `start'
+/var/lib/gems/1.8/gems/railties-3.0.0/lib/rails/commands/server.rb:65:in `start'
+/var/lib/gems/1.8/gems/railties-3.0.0/lib/rails/commands.rb:30
+/var/lib/gems/1.8/gems/railties-3.0.0/lib/rails/commands.rb:27:in `tap'
+/var/lib/gems/1.8/gems/railties-3.0.0/lib/rails/commands.rb:27
+script/rails:6:in `require'
+script/rails:6
+Rendered admin/admins/index.html.erb within layouts/application (1.4ms)
+Completed   in 43ms
+
+ActionView::Template::Error (compile error
+/home/shuai/work/flam/web/app/views/admin/admins/index.html.erb:34: unknown regexp options - tr
+/home/shuai/work/flam/web/app/views/admin/admins/index.html.erb:35: syntax error, unexpected '<'
+<% end );@output_buffer.safe_concat('
+ ^
+/home/shuai/work/flam/web/app/views/admin/admins/index.html.erb:38: syntax error, unexpected kELSE, expecting kEND
+'); else 
+        ^
+/home/shuai/work/flam/web/app/views/admin/admins/index.html.erb:50: syntax error, unexpected kENSURE, expecting kEND
+/home/shuai/work/flam/web/app/views/admin/admins/index.html.erb:52: syntax error, unexpected $end, expecting kEND):
+    31: <tr>
+    32: <td><%= task.location %></td>
+    33: <td><%= task.status $></td>
+    34: </tr>
+    35: <% end %>
+    36: </table>
+    37: 
+  app/views/admin/admins/index.html.erb:52:in `compile'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  [1m[35mPackageTask Load (132.1ms)[0m  SELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')
+  [1m[36mPackageTask Load (0.2ms)[0m  [1mSELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'failed')[0m
+  [1m[35mPackageTask Load (0.1ms)[0m  SELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (445.8ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (455.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 13:08:17 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[36mPackage Load (13.4ms)[0m  [1mSELECT `packages`.* FROM `packages`[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')) AS subquery
+  [1m[36mSQL (1.8ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery[0m
+  [1m[35mPackageTask Load (0.3ms)[0m  SELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')
+Rendered admin/admins/index.html.erb within layouts/application (8.9ms)
+Completed   in 57ms
+
+ActionView::Template::Error (undefined method `location' for #<PackageTask:0xb668b198>):
+    29:     </tr>
+    30:     <% @package_tasks.each do |task| %>
+    31:         <tr>
+    32:         <td><%= task.location %></td>
+    33:         <td><%= task.status %></td>
+    34:         </tr>
+    35:     <% end %>
+  app/views/admin/admins/index.html.erb:32:in `_app_views_admin_admins_index_html_erb__660298528__617284518_0'
+  app/views/admin/admins/index.html.erb:30:in `_app_views_admin_admins_index_html_erb__660298528__617284518_0'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+  [1m[36mPackageTask Load (0.1ms)[0m  [1mSELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')[0m
+  [1m[35mPackageTask Load (0.1ms)[0m  SELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'failed')
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (275.6ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (283.2ms)
+  [1m[36mSQL (198.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (27.7ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to DeviseCreateAdmins (20101010110848)
+Migrating to CreateVideoResources (20101016163903)
+Migrating to CreatePrograms (20101016165149)
+Migrating to CreateCaptions (20101018154605)
+Migrating to CreatePackages (20101018163113)
+Migrating to CreateRawVideos (20101031212851)
+Migrating to CreateClips (20101101003740)
+Migrating to CreateRawVideoStreams (20101113233547)
+Migrating to CreateAdminTasks (20101114003324)
+  [1m[35mSQL (0.4ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `admin_tasks`[0m
+  [1m[35mSQL (34.0ms)[0m  SHOW KEYS FROM `admin_tasks`
+  [1m[36mSQL (0.6ms)[0m  [1mdescribe `admins`[0m
+  [1m[35mSQL (30.7ms)[0m  SHOW KEYS FROM `admins`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `captions`[0m
+  [1m[35mSQL (0.3ms)[0m  SHOW KEYS FROM `captions`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `clips`[0m
+  [1m[35mSQL (0.7ms)[0m  SHOW KEYS FROM `clips`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `packages`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `packages`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `programs`[0m
+  [1m[35mSQL (38.2ms)[0m  SHOW KEYS FROM `programs`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `raw_video_streams`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `raw_video_streams`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `raw_videos`[0m
+  [1m[35mSQL (0.6ms)[0m  SHOW KEYS FROM `raw_videos`
+  [1m[36mSQL (0.3ms)[0m  [1mdescribe `video_resources`[0m
+  [1m[35mSQL (0.6ms)[0m  SHOW KEYS FROM `video_resources`
+  [1m[36mSQL (15.4ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to DeviseCreateAdmins (20101010110848)
+Migrating to CreateVideoResources (20101016163903)
+Migrating to CreatePrograms (20101016165149)
+Migrating to CreateCaptions (20101018154605)
+Migrating to CreatePackages (20101018163113)
+Migrating to CreateRawVideos (20101031212851)
+Migrating to CreateClips (20101101003740)
+Migrating to CreateRawVideoStreams (20101113233547)
+Migrating to CreateAdminTasks (20101114003324)
+  [1m[35mSQL (0.3ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW TABLES
+  [1m[36mSQL (12.6ms)[0m  [1mdescribe `admin_tasks`[0m
+  [1m[35mSQL (0.6ms)[0m  SHOW KEYS FROM `admin_tasks`
+  [1m[36mSQL (0.5ms)[0m  [1mdescribe `admins`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `admins`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `captions`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `captions`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `clips`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `clips`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `packages`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `packages`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `programs`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `programs`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `raw_video_streams`[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW KEYS FROM `raw_video_streams`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `raw_videos`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `raw_videos`
+  [1m[36mSQL (0.4ms)[0m  [1mdescribe `video_resources`[0m
+  [1m[35mSQL (0.2ms)[0m  SHOW KEYS FROM `video_resources`
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (103.9ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `schema_migrations`[0m
+  [1m[35mSQL (87.3ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.1ms)[0m  SHOW TABLES
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT `schema_migrations`.`version` FROM `schema_migrations`[0m
+Migrating to DeviseCreateAdmins (20101010110848)
+  [1m[35mSQL (14.3ms)[0m  CREATE TABLE `admins` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(255) DEFAULT '' NOT NULL, `encrypted_password` varchar(128) DEFAULT '' NOT NULL, `password_salt` varchar(255) DEFAULT '' NOT NULL, `reset_password_token` varchar(255), `remember_token` varchar(255), `remember_created_at` datetime, `sign_in_count` int(11) DEFAULT 0, `current_sign_in_at` datetime, `last_sign_in_at` datetime, `current_sign_in_ip` varchar(255), `last_sign_in_ip` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `admins`[0m
+  [1m[35mSQL (83.4ms)[0m  CREATE UNIQUE INDEX `index_admins_on_email` ON `admins` (`email`)
+  [1m[36mSQL (0.3ms)[0m  [1mSHOW KEYS FROM `admins`[0m
+  [1m[35mSQL (35.6ms)[0m  CREATE UNIQUE INDEX `index_admins_on_reset_password_token` ON `admins` (`reset_password_token`)
+  [1m[36mSQL (0.7ms)[0m  [1mdescribe `schema_migrations`[0m
+  [1m[35mSQL (2.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101010110848')
+Migrating to CreateVideoResources (20101016163903)
+  [1m[36mSQL (17.1ms)[0m  [1mCREATE TABLE `video_resources` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `raw_video_id` int(11), `location` varchar(255), `bitrate` int(11)) ENGINE=InnoDB[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101016163903')
+Migrating to CreatePrograms (20101016165149)
+  [1m[36mSQL (17.0ms)[0m  [1mCREATE TABLE `programs` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `length` int(11), `clip_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (2.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101016165149')
+Migrating to CreateCaptions (20101018154605)
+  [1m[36mSQL (15.9ms)[0m  [1mCREATE TABLE `captions` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `location` varchar(255), `format` varchar(255), `package` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (5.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101018154605')
+Migrating to CreatePackages (20101018163113)
+  [1m[36mSQL (17.8ms)[0m  [1mCREATE TABLE `packages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `location` varchar(255), `status` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (12.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101018163113')
+Migrating to CreateRawVideos (20101031212851)
+  [1m[36mSQL (24.8ms)[0m  [1mCREATE TABLE `raw_videos` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `location` varchar(255), `package` varchar(255), `bitrate` int(11), `title` varchar(255), `format` varchar(255), `duration` int(11), `size` int(11), `author` varchar(255), `copyright` varchar(255), `comment` varchar(255), `status` varchar(255)) ENGINE=InnoDB[0m
+  [1m[35mSQL (9.1ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101031212851')
+Migrating to CreateClips (20101101003740)
+  [1m[36mSQL (25.6ms)[0m  [1mCREATE TABLE `clips` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `raw_video_id` int(11), `location` varchar(255), `duration` int(11), `bitrate` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [1m[35mSQL (12.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101101003740')
+Migrating to CreateRawVideoStreams (20101113233547)
+  [1m[36mSQL (31.7ms)[0m  [1mCREATE TABLE `raw_video_streams` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `raw_video_id` int(11), `index` int(11), `codec` varchar(255), `codec_long` varchar(255), `type` varchar(255), `sample_rate` int(11), `channels` int(11), `bits_per_sample` int(11), `avg_framerate` int(11), `start_time` int(11), `duration` int(11)) ENGINE=InnoDB[0m
+  [1m[35mSQL (9.5ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101113233547')
+Migrating to CreateAdminTasks (20101114003324)
+  [1m[36mSQL (53.9ms)[0m  [1mCREATE TABLE `admin_tasks` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime, `type` varchar(255), `status` varchar(255), `priority` int(11), `raw_videos_id` int(11), `bitrate` int(11), `location` varchar(255)) ENGINE=InnoDB[0m
+  [1m[35mSQL (6.0ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20101114003324')
+  [1m[36mSQL (5.6ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT `schema_migrations`.`version` FROM `schema_migrations`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mSQL (0.5ms)[0m  describe `admin_tasks`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `admin_tasks`[0m
+  [1m[35mSQL (0.5ms)[0m  describe `admins`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `admins`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `captions`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `captions`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `clips`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `clips`[0m
+  [1m[35mSQL (0.4ms)[0m  describe `packages`
+  [1m[36mSQL (0.1ms)[0m  [1mSHOW KEYS FROM `packages`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `programs`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `programs`[0m
+  [1m[35mSQL (7.1ms)[0m  describe `raw_video_streams`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `raw_video_streams`[0m
+  [1m[35mSQL (0.5ms)[0m  describe `raw_videos`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `raw_videos`[0m
+  [1m[35mSQL (0.3ms)[0m  describe `video_resources`
+  [1m[36mSQL (0.2ms)[0m  [1mSHOW KEYS FROM `video_resources`[0m
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 13:14:24 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[36mPackage Load (0.9ms)[0m  [1mSELECT `packages`.* FROM `packages`[0m
+  [1m[35mSQL (31.7ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')) AS subquery
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery[0m
+Rendered admin/admins/index.html.erb within layouts/application (64.4ms)
+Completed 200 OK in 99ms (Views: 49.8ms | ActiveRecord: 32.8ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 13:14:54 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[35mPackage Load (0.2ms)[0m  SELECT `packages`.* FROM `packages`
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery
+Rendered admin/admins/index.html.erb within layouts/application (16.0ms)
+Completed 200 OK in 33ms (Views: 21.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 13:15:04 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[36mPackage Load (0.1ms)[0m  [1mSELECT `packages`.* FROM `packages`[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery[0m
+Rendered admin/admins/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 87ms (Views: 9.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 13:15:05 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[35mPackage Load (0.1ms)[0m  SELECT `packages`.* FROM `packages`
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery
+Rendered admin/admins/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 24ms (Views: 9.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 13:16:11 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[36mPackage Load (0.1ms)[0m  [1mSELECT `packages`.* FROM `packages`[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery[0m
+Rendered admin/admins/index.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 22ms (Views: 10.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/packages/new" for 127.0.0.1 at Sun Nov 14 13:16:13 -0800 2010
+  Processing by Admin::PackagesController#new as HTML
+Rendered admin/packages/_form.html.erb (7.6ms)
+Rendered admin/packages/new.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 102ms (Views: 92.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 13:16:22 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"wtf", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+Rendered admin/packages/_form.html.erb (12.1ms)
+Rendered admin/packages/new.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 1088ms (Views: 23.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 13:16:23 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"wtf", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+Rendered admin/packages/_form.html.erb (7.8ms)
+Rendered admin/packages/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 111ms (Views: 17.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/packages" for 127.0.0.1 at Sun Nov 14 13:16:27 -0800 2010
+  Processing by Admin::PackagesController#create as HTML
+  Parameters: {"commit"=>"Create Package", "location"=>"/var", "authenticity_token"=>"sTC8SMDLKCzQLGSgODPqb3PXdurt5dCZ6YDWA6Ko5QE=", "utf8"=>"✓"}
+  [1m[35mSQL (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO `admin_tasks` (`created_at`, `parameter`, `priority`, `raw_videos_id`, `status`, `type`, `updated_at`) VALUES ('2010-11-14 21:16:27', NULL, NULL, NULL, 'new', 'PackageTask', '2010-11-14 21:16:27')[0m
+Mysql::Error: Unknown column 'parameter' in 'field list': INSERT INTO `admin_tasks` (`created_at`, `parameter`, `priority`, `raw_videos_id`, `status`, `type`, `updated_at`) VALUES ('2010-11-14 21:16:27', NULL, NULL, NULL, 'new', 'PackageTask', '2010-11-14 21:16:27')
+  [1m[35mSQL (0.1ms)[0m  ROLLBACK
+Completed   in 15ms
+
+ActiveRecord::StatementInvalid (Mysql::Error: Unknown column 'parameter' in 'field list': INSERT INTO `admin_tasks` (`created_at`, `parameter`, `priority`, `raw_videos_id`, `status`, `type`, `updated_at`) VALUES ('2010-11-14 21:16:27', NULL, NULL, NULL, 'new', 'PackageTask', '2010-11-14 21:16:27')):
+  app/controllers/admin/packages_controller.rb:52:in `create'
+  app/controllers/admin/packages_controller.rb:51:in `create'
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (304.7ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (318.1ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 13:16:36 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[36mPackage Load (0.1ms)[0m  [1mSELECT `packages`.* FROM `packages`[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery[0m
+Rendered admin/admins/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 25ms (Views: 14.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 13:16:39 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[35mPackage Load (0.1ms)[0m  SELECT `packages`.* FROM `packages`
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery
+Rendered admin/admins/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 21ms (Views: 10.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 13:16:41 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[36mPackage Load (0.1ms)[0m  [1mSELECT `packages`.* FROM `packages`[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery[0m
+Rendered admin/admins/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 21ms (Views: 10.6ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Sun Nov 14 13:16:49 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[35mPackage Load (0.1ms)[0m  SELECT `packages`.* FROM `packages`
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery
+Rendered admin/admins/index.html.erb within layouts/application (5.0ms)
+Completed 200 OK in 26ms (Views: 13.0ms | ActiveRecord: 0.2ms)
