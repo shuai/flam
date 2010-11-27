@@ -1,0 +1,37 @@
+
+<% if @task.nil? %>
+Invalid parameter
+<% else %>
+<% form_for([:admin, @task]) do |f| %>
+  <% if @task.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@task.errors.count, "error") %> prohibited this package from being saved:</h2>
+
+      <ul>
+      <% @task.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <% if @task.type == "TranscodingTask" %>
+      <h1>Transcoding request</h1>
+      Video: <%= text_field_tag(:raw_videos_id) %> <br>
+      Bitrate: <%= text_field_tag(:bitrate) %> <br>
+      <input name="type" type="hidden" value="transcoding" />
+  <% else %>
+      <h1>New package</h1>
+      Location: <%= text_field_tag(:location) %> <br>
+      <input name="type" type="hidden" value="package" />
+  <% end %>
+  
+
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<% end %>
+
+<%= link_to 'Back', admin_root_path %>
