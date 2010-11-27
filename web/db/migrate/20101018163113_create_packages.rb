@@ -4,8 +4,6 @@ class CreatePackages < ActiveRecord::Migration
       t.string :location
       t.string :id
       
-      # 'new', 'processed'
-      t.string :status
       t.timestamps
     end
   end

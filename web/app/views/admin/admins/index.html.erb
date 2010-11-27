@@ -6,42 +6,79 @@ Signed in as <%= current_admin.email %>.
 
 <h2>Admin portal</h2>
 
-
-
-
 <h3>Package</h3>
+<%= link_to "New package", new_admin_admin_task_path(:type => "package") %><br><br>
+
+<% if @package_ing.size != 0 or @package_tasks.size != 0 %>
+<h4>processing packages</h4>
+<% end %>
 
 <% if @package_ing.size != 0 %>
+
    <% @package_ing.each do |p| %>
    -> <%= p.location %>
    <% end %>
-<% else %>
-    No package is running
-<% end %>
-
-<h4>queue</h4>
+<br>
+<%end%>
 
 <% if @package_tasks.size != 0 %>
     <table>
     <tr>
+    <td>ID</td>
     <td>Location</td>
     <td>Status</td>
+    <td>Operatorn</td>
     </tr>
     <% @package_tasks.each do |task| %>
         <tr>
+        <td><%= task.id %></td>
         <td><%= task.location %></td>
         <td><%= task.status %></td>
+        <td><%= link_to 'Destroy', [:admin,task], :confirm => 'Are you sure?', :method => :delete %></td>
         </tr>
     <% end %>
     </table>
-<% else %>
-Nothing in the queue <br>
 <% end %>
 
+<% if @package_failed_tasks.size != 0 %>
+<h4 style="color:red">Failed packages</h4>
+    <table>
+    <tr>
+    <td>ID</td>
+    <td>Location</td>
+    <td>Error msg</td>
+    <td>Operatorn</td>
+    </tr>
+    <% @package_failed_tasks.each do |task| %>
+        <tr>
+        <td><%= task.id %></td>
+        <td><%= task.location %></td>
+        <td><%= task.err_msg %></td>
+        <td><%= link_to 'Destroy', [:admin,task], :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+    <% end %>
+    </table>
+<% end %>
 
-<%= link_to "New package", new_admin_package_path %>
-<br>
-<% @packages.each do |package| %>
-  <%=package.id%> || <%=package.location%> || <%=package.status%> 
-  <%= link_to "Delete", [:admin, package], :method => :delete %> <br>
+<% if @packages.size != 0 %>
+<h4 style="color:green">packages</h4>
+    <table>
+    <tr>
+    <td>ID</td>
+    <td>Location</td>
+    <td>Videos</td>
+    <td>Captions</td>
+    <td>Operatorn</td>
+
+    </tr>
+    <% @packages.each do |package| %>
+        <tr>
+        <td><%= package.id %></td>
+        <td><%= link_to package.location, [:admin, package] %></td>
+        <td><% if package.raw_videos.nil? %> 0 <% else %> <%= package.raw_videos.size %> <% end %>
+        <td> 0
+        <td><%= link_to 'Destroy', [:admin,package], :confirm => 'Are you sure?', :method => :delete %></td>
+        </tr>
+    <% end %>
+    </table>
 <% end %>

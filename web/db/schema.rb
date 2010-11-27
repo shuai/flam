@@ -17,6 +17,7 @@ ActiveRecord::Schema.define(:version => 20101114003324) do
     t.datetime "updated_at"
     t.string   "type"
     t.string   "status"
+    t.string   "err_msg"
     t.integer  "priority"
     t.integer  "raw_videos_id"
     t.integer  "bitrate"
@@ -43,11 +44,9 @@ ActiveRecord::Schema.define(:version => 20101114003324) do
   add_index "admins", ["reset_password_token"], :name => "index_admins_on_reset_password_token", :unique => true
 
   create_table "captions", :force => true do |t|
-    t.string   "location"
-    t.string   "format"
-    t.string   "package"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "package_id"
+    t.string  "location"
+    t.string  "format"
   end
 
   create_table "clips", :force => true do |t|
@@ -61,7 +60,6 @@ ActiveRecord::Schema.define(:version => 20101114003324) do
 
   create_table "packages", :force => true do |t|
     t.string   "location"
-    t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -89,8 +87,8 @@ ActiveRecord::Schema.define(:version => 20101114003324) do
   end
 
   create_table "raw_videos", :force => true do |t|
+    t.integer "package_id"
     t.string  "location"
-    t.string  "package"
     t.integer "bitrate"
     t.string  "title"
     t.string  "format"

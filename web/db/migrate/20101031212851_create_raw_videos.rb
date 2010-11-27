@@ -1,8 +1,9 @@
 class CreateRawVideos < ActiveRecord::Migration
   def self.up
-    create_table :raw_videos do |t|
+    create_table :raw_videos do |t|  
+        t.references :package  # the original package where this video belongs to
+        
         t.string :location # S3 or local
-        t.string :package  # the original package where this video belongs to
         
         t.integer :bitrate
         t.string :title

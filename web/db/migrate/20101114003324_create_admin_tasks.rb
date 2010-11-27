@@ -4,10 +4,11 @@ class CreateAdminTasks < ActiveRecord::Migration
 
       t.timestamps
       t.string :type     
-      t.string :status
+      t.string :status # new,failed,ing,done
+      t.string :err_msg
       t.integer :priority
             
-      #Transcoding task
+      #transcoding task
       t.integer :raw_videos_id
       t.integer :bitrate
       

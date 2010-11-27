@@ -1,5 +1,28 @@
 <p id="notice"><%= notice %></p>
 
+ID: <% @package.id %> <br>
+Location: <% @package.location %> <br>
 
-<%= link_to 'Edit', edit_admin_package_path(@package) %> |
-<%= link_to 'Back', admin_path %>
+<% if @package.raw_videos.nil? %>
+    <h4>This package doesn't include video files.</h4>
+<% else %>
+    <h4>Videos</h4>
+    <table>
+    <tr>
+    <td>Title</td>
+    <td>bitrate(kbps)</td>
+    <td>format</td>
+    <td>duration(mins)</td>
+    <td>size</td>
+    </tr>
+    <% @package.raw_videos.each do |video| %>
+        <td><%= video.title %></td>
+        <td><%= video.bitrate.to_i/1024 %></td>
+        <td><%= video.format %></td>
+        <td><%= video.duration/60 %> </td>
+        <td><%= video.size %></td>
+    <% end %>
+    </table>
+<% end %>
+
+<%= link_to 'Back', admin_root_path %>

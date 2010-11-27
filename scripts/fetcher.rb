@@ -28,44 +28,47 @@ def is_caption(name)
 end
 
 #视频文件写到raw_video数据库
-def save_video(path, package_id)
-
+def save_video(path, package)
     v = Video.new path
     if v.is_video?
-        new_video = RawVideo.new(:location => path, :package => package_id, :title => v.Title, :format => v.Format, :duration => v.Duration,
-                                :size => v.Size, :author => v.Author, :copyright => v.Copyright, :comment => v.Comment)
-        
-
-        
-        v.Streams.each do |s|
-            new_video.raw_video_streams.create(:index => s.Index, :codec => s.Codec, :codec_long => s.CodecLong, :type => s.Type, 
-                                               :sample_rate => s.SampleRate, :channels => s.Channels, :bits_per_sample => s.BitPerSample,
-                                               :avg_framerate => s.AvgFramerate, :start_time => s.StartTime, :duration => s.Duration)
-        end
+        new_video = RawVideo.new(:location => path, :package => package, :title => v.Title, :format => v.Format, :duration => v.Duration,
+                                :bitrate => v.Bitrate, :size => v.Size, :author => v.Author, :copyright => v.Copyright, :comment => v.Comment)
         
         if !new_video.save
-            puts "Failed to write video record"
+            raise "Failed to write video record"
         end
+
+        v.Streams.each do |s|
+            new_video.raw_video_streams.create(:index => s.Index, :codec => s.Codec, :codec_long => s.CodecLong, :type => s.Type, 
+                                               :sample_rate => s.SampleRate, :channels => s.Channel, :bits_per_sample => s.BitPerSample,
+                                               :avg_framerate => s.AvgFrameRate, :start_time => s.StartTime, :duration => s.Duration)
+        end
+
     else
-        puts "Not a video #{path}"
+        raise "Not a video #{path}"
     end
 end
 
-def save_resources(videos, captions, package_id)
-    if videos.size + captions.size > 0
-       puts "Found #{videos.size} videos and #{captions.size} captions"
-    else
-       return
+def save_resources(videos, captions, package_path, package_id)
+    puts "Creating package: #{package_id}"
+    
+    new_pack = Package.new(:id => package_id, :location => package_path)
+    if !new_pack.save
+       raise "Error occured when writing package to database"
     end
     
-    videos.each do |v|
-        save_video(v,package_id)
-    end
-    
-    captions.each do |v|
-        Captions.new(:location => v, :package => package_id).save
-    end
+    begin 
+        videos.each do |v|
+            save_video(v, new_pack)
+        end
         
+        captions.each do |v|
+            Captions.new(:location => v, :package => new_pack).save
+        end
+    rescue => e
+        new_pack.destroy
+        raise e
+    end
 end
 
 # 搜索目录，寻找视频文件和字幕,添加到数据库
@@ -76,7 +79,13 @@ def handle_directory(directory,package_id)
     @captions=[]
     
     search_dirctory(directory)
-    save_resources(@videos, @captions, package_id)
+    
+    if @videos.size == 0 and @captions.size == 0
+        $error = "Failed to find valid video file"
+        return
+    end
+    
+    save_resources(@videos, @captions, directory, package_id)
 end
 
 
@@ -89,14 +98,10 @@ def search_dirctory(directory)
         full_path = directory + filename
         if File.directory? full_path 
             search_dirctory(directory)
-        elsif is_video filename
+        elsif is_video full_path
             @videos << full_path
-            puts "Video file #{filename}"
-        elsif is_caption filename
+        elsif is_caption full_path
             @captions << fullpath
-            puts "Caption file #{filename}"
-        else
-            puts "Unrecognized file #{filename}"
         end
     end
 end
@@ -110,8 +115,8 @@ def parse_resource(dir)
             system "mkdir #{Raw_files_dir}#{uuid}/"
 	        system "mv #{dir} #{Raw_files_dir}#{uuid}/"
             handle_directory "#{Raw_files_dir}#{uuid}/", uuid    
-	else
-            raise  "'#{dir}' is not a valid path"
+	    else
+            $error = "Not a valid directory or video file"
             # TODO 处理压缩包
         end
     end 
@@ -125,15 +130,30 @@ if __FILE__ == $0
         tasks.each do |task|
           puts "================================================="
           puts "Walk through package '#{task.location}' ..."
-          begin 
+          
+          $error = nil
+          
+          begin
             parse_resource(task.location)
           rescue => e
-            puts "task failed", e
+            $error = e.to_str
           end
+          
+          puts $error
+          if !$error.nil?
+            task.status = "failed"
+            task.err_msg = $error
+            task.save
+          else
+            task.status = "done"
+            task.err_msg = ""
+            task.save
+          end
+          
         end
         
         puts 'idling ...'
-        sleep 100
+        sleep 5
     end
 end
 

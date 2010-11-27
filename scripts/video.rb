@@ -48,6 +48,10 @@ class Video
             @Comment = format_values["TAG:comment"]
         end
         
+        if @Title.nil? or @Title.size == 0
+            @Title = File.split(filename)[1]
+        end
+        
         @Streams = []
         #streams
         ret = output.scan /\[STREAM\].*?\[\/STREAM\]/m
@@ -77,6 +81,7 @@ class Video
     
     def self.is_video? (filename)
         v = Video.new filename
+        puts filename, v.is_video? 
         v.is_video?
     end
 end
