@@ -9,7 +9,7 @@ class CreateAdminTasks < ActiveRecord::Migration
       t.integer :priority
             
       #transcoding task
-      t.integer :raw_videos_id
+      t.references :raw_videos
       t.integer :bitrate
       
       #package task

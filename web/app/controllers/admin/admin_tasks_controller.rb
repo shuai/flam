@@ -4,6 +4,7 @@ class Admin::AdminTasksController < ApplicationController
     def new
         if params[:type] == "transcoding"
             @task = TranscodingTask.new(:status => "new")
+            @video = RawVideo.find(params[:raw_video_id])
         elsif params[:type] == "package"
             @task = PackageTask.new(:status => "new")
         end 
@@ -11,7 +12,7 @@ class Admin::AdminTasksController < ApplicationController
     
     def create
         if params[:type] == "transcoding"
-            @task = TranscodingTask.new(:status => "new", :raw_videos_id => params["raw_videos_id"], :bitrate => params["bitrate"])
+            @task = TranscodingTask.new(:status => "new", :raw_videos_id => params["raw_video_id"], :bitrate => params["bitrate"])
         elsif params[:type] == "package"
             @task = PackageTask.new(:status => "new", :location => params["location"])
         else
@@ -25,11 +26,17 @@ class Admin::AdminTasksController < ApplicationController
         end
         
         if @task.type == "TranscodingTask"
-            if !RawVideo.find(params["raw_videos_id"]).nil? and @task.save
+            video = RawVideo.find(params["raw_video_id"])
+            
+            if video.nil?
+                @task.errors["Error:"] = "Video doesn't exist"
+            elsif video.bitrate <= 0
+                @task.errors["Error:"] = "Invalid target bitrate"
+            elsif video.bitrate < params["bitrate"].to_i
+                @task.errors["Error:"] = "Target bitrate shouldn't be larger than the raw video(#{video.bitrate})"
+            elsif @task.save
                 redirect_to(admin_root_path, :notice => 'Transcoding request was successfully created.')
                 return
-            else
-                @task.errors["Error:"] = "Video doesn't exist"
             end
         elsif @task.type == "PackageTask"
             if (File.directory?(params[:location]) or Video.is_video?(params[:location])) and @task.save

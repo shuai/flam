@@ -17,7 +17,7 @@ Location: <%= @package.location %> <br>
     </tr>
     <% @package.raw_videos.each do |video| %>
         <tr>
-        <td><%= video.title %></td>
+        <td><%= link_to video.title, [:admin, video] %></td>
         <td><%= video.bitrate.to_i/1024 %></td>
         <td><%= video.format %></td>
         <td><%= video.duration/60 %> </td>

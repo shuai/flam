@@ -17,16 +17,17 @@ Invalid parameter
 
   <% if @task.type == "TranscodingTask" %>
       <h1>Transcoding request</h1>
-      Video: <%= text_field_tag(:raw_videos_id) %> <br>
-      Bitrate: <%= text_field_tag(:bitrate) %> <br>
+      ID: <%= @video.id %> <br>
+      Video: <%= @video.title %> <br>
+      Bitrate(kbps): <%= @video.bitrate.to_i/1024 %> <br>
+      Target Bitrate(kbps): <%= text_field_tag(:bitrate) %> <br>
       <input name="type" type="hidden" value="transcoding" />
+      <input name="raw_video_id" type="hidden" value="<%= @video.id %>" />
   <% else %>
       <h1>New package</h1>
       Location: <%= text_field_tag(:location) %> <br>
       <input name="type" type="hidden" value="package" />
   <% end %>
-  
-
   
   <div class="actions">
     <%= f.submit %>

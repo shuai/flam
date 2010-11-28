@@ -1,14 +1,8 @@
 Project::Application.routes.draw do
   
-
-  resources :tasks
-
-  resources :raw_videos
-
   namespace :admin do
      root :to => "admins#index"
      resources :packages
-     resources :video_resources
      resources :raw_videos
      resources :admin_tasks
      resources :transcoding_tasks, :controller => "admin_tasks"

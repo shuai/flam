@@ -100,10 +100,4 @@ ActiveRecord::Schema.define(:version => 20101114003324) do
     t.string  "status"
   end
 
-  create_table "video_resources", :force => true do |t|
-    t.integer "raw_video_id"
-    t.string  "location"
-    t.integer "bitrate"
-  end
-
 end

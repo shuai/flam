@@ -1,5 +1,119 @@
 <p id="notice"><%= notice %></p>
 
+<table>
+<tr><td>Title</td>      <td><%= @video.title %> </td></tr>
+<tr><td>Location</td>   <td><%= @video.location %></tr>
+<tr><td>Bitrate(kbps)</td><td><%= @video.bitrate.to_i/1024 %></tr>
+<tr><td>Format</td>  <td><%= @video.format %></td></tr>
+<tr><td>Duration(mins)</td> <td><%= @video.duration/60 %> </td></tr>
+<tr><td>Size(M)</td>      <td><%= @video.size.to_i/1024/1024 %></td>
+<tr><td>Author</td>      <td><%= @video.author %></td>
+<tr><td>Copyright</td>      <td><%= @video.copyright %></td>
+<tr><td>Comment</td>      <td><%= @video.comment %></td>
+</table>
 
-<%= link_to 'Edit', edit_raw_video_path(@raw_video) %> |
-<%= link_to 'Back', raw_videos_path %>
+<h4>Streams</h4>
+<table>
+<tr>
+<td>Index</td>
+<td>Codec</td>
+<td>Codec Long</td>
+<td>Type</td>
+<td>Sample Rate</td>
+<td>Channels</td>
+<td>Bits Per Sample</td>
+<td>Average Framerate</td>
+<td>Start Time</td>
+<td>Duration</td>
+</tr>
+<% @video.raw_video_streams.each do |stream| %>
+<tr>
+<td><%= stream.index%></td>
+<td><%= stream.codec%></td>
+<td><%= stream.codec_long%></td>
+<td><%= stream.type%></td>
+<td><%= stream.sample_rate%></td>
+<td><%= stream.channels%></td>
+<td><%= stream.bits_per_sample%></td>
+<td><%= stream.avg_framerate%></td>
+<td><%= stream.start_time%></td>
+<td><%= stream.duration%></td>
+</tr>
+<% end %>
+</table>
+
+<h4>Clips</h4>
+<table>
+<tr>
+<td>Location </td>
+<td>Bitrate</td>
+<td>Start Time</td>
+<td>Duration</td>
+<td>Status</td>
+</tr>
+<% @video.clips.each do |clip| %>
+<tr>
+<td><%= clip.location%></td>
+<td><%= clip.bitrate%></td>
+<td> 0 </td>
+<td><%= clip.duration%></td>
+<td style="color:green">Ready</td>
+</tr>
+<% end %>
+</table>
+
+<h4>Transcoding</h4>
+<table>
+<tr>
+<td>Location </td>
+<td>Bitrate</td>
+<td>Start Time</td>
+<td>Duration</td>
+<td>Status</td>
+</tr>
+<% @transcoding_ing.each do |clip| %>
+<tr>
+<td><%= clip.location%></td>
+<td><%= clip.bitrate%></td>
+<td> 0 </td>
+<td><%= clip.duration%></td>
+<td style="color:green">Transcoding</td>
+</tr>
+<% end %>
+<% @transcoding_new.each do |clip| %>
+<tr>
+<td><%= clip.location%></td>
+<td><%= clip.bitrate%></td>
+<td> 0 </td>
+<td> 0 </td>
+<td>Queue</td>
+</tr>
+<% end %>
+</table>
+
+<% if @transcoding_failed.size != 0 %>
+<h4>Failed</h4>
+<table>
+<tr>
+<td>Location </td>
+<td>Bitrate</td>
+<td>Start Time</td>
+<td>Duration</td>
+<td>Error</td>
+</tr>
+<% @transcoding_failed.each do |clip| %>
+<tr>
+<td><%= clip.location%></td>
+<td><%= clip.bitrate%></td>
+<td> 0 </td>
+<td> 0 </td>
+<td style="color:red"><%= clip.err_msg %></td>
+</tr>
+<% end %>
+</table>
+<% end %>
+
+
+<br>
+<%= link_to 'Transcode', new_admin_admin_task_path(:type => "transcoding", :raw_video_id => @video.id) %> |
+<%= link_to 'Back', admin_package_path(@video.package) %>
