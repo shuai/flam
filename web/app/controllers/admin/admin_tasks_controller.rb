@@ -12,7 +12,7 @@ class Admin::AdminTasksController < ApplicationController
     
     def create
         if params[:type] == "transcoding"
-            @task = TranscodingTask.new(:status => "new", :raw_videos_id => params["raw_video_id"], :bitrate => params["bitrate"])
+            @task = TranscodingTask.new(:status => "new", :raw_video_id => params["raw_video_id"], :bitrate => params["bitrate"].to_i*1024)
         elsif params[:type] == "package"
             @task = PackageTask.new(:status => "new", :location => params["location"])
         else

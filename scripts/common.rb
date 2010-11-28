@@ -33,7 +33,7 @@ Caption_extension = ['.wtf']
 ########################################################
 
 def getcliplocation(raw_video_id, bitrate)
-    "#{Clip_dir}#{@raw_video_id}/#{@bitrate}.f4v"
+    "#{Clip_dir}#{raw_video_id}/#{bitrate}.mp4"
 end
     
     

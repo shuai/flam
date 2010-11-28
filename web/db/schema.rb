@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(:version => 20101114003324) do
     t.string   "status"
     t.string   "err_msg"
     t.integer  "priority"
-    t.integer  "raw_videos_id"
+    t.integer  "raw_video_id"
     t.integer  "bitrate"
     t.string   "location"
   end

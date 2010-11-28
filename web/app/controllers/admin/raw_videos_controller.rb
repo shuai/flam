@@ -14,9 +14,9 @@ class Admin::RawVideosController < ApplicationController
   # GET /raw_videos/1.xml
   def show
     @video = RawVideo.find(params[:id])
-    @transcoding_new = TranscodingTask.where(:raw_videos_id => params[:id], :status => "new")
-    @transcoding_failed = TranscodingTask.where(:raw_videos_id => params[:id], :status => "failed")
-    @transcoding_ing = TranscodingTask.where(:raw_videos_id => params[:id], :status => "ing")
+    @transcoding_new = TranscodingTask.where(:raw_video_id => params[:id], :status => "new")
+    @transcoding_failed = TranscodingTask.where(:raw_video_id => params[:id], :status => "failed")
+    @transcoding_ing = TranscodingTask.where(:raw_video_id => params[:id], :status => "ing")
 
     respond_to do |format|
       format.html # show.html.erb
