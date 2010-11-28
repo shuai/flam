@@ -1,0 +1,21 @@
+<h1>Clip</h1>
+
+<!-- START OF THE PLAYER EMBEDDING TO COPY-PASTE -->
+<object id="player" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" name="player" width="500" height="400"> 
+	<param name="movie" value="/player/player.swf" /> 
+	<param name="allowfullscreen" value="true" /> 
+	<param name="allowscriptaccess" value="always" /> 
+	<param name="flashvars" value="file=/admin/clips/<%= @clip.id %>/stream" /> 
+	<embed 
+		type="application/x-shockwave-flash"
+		id="player2"
+		name="player2"
+		src="/player/player.swf" 
+		width="500" 
+		height="400"
+		allowscriptaccess="always" 
+		allowfullscreen="true"
+		flashvars="file=/admin/clips/<%= @clip.id %>/stream" 
+	/> 
+</object> 
+<!-- END OF THE PLAYER EMBEDDING -->

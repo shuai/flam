@@ -49,7 +49,7 @@
 <td>Bitrate</td>
 <td>Start Time</td>
 <td>Duration</td>
-<td>Status</td>
+<td>Operation</td>
 </tr>
 <% @video.clips.each do |clip| %>
 <tr>
@@ -57,7 +57,7 @@
 <td><%= clip.bitrate%></td>
 <td> 0 </td>
 <td><%= clip.duration%></td>
-<td style="color:green">Ready</td>
+<td> <%= link_to "Play", admin_clip_path(clip) %> </td>
 </tr>
 <% end %>
 </table>

@@ -2,6 +2,7 @@ Project::Application.routes.draw do
   
   namespace :admin do
      root :to => "admins#index"
+     resources :clips
      resources :packages
      resources :raw_videos
      resources :admin_tasks
@@ -9,7 +10,8 @@ Project::Application.routes.draw do
      resources :package_tasks, :controller => "admin_tasks"
   end
 
-  
+  match 'admin/clips/:id/stream' => 'admin/clips#stream', :as => :stream_clip
+       
   devise_for :admins , :path => "admin"
 
   get "/test" => "test#index"
