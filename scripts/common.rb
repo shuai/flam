@@ -1,8 +1,8 @@
 ########################################################
 # params
 
-Db_config = "/home/shuai/work/flam/web/config/database.yml"
-Db_environment = "development"
+Db_config = "../web/config/database.yml"
+Db_environment = "production"
 
 
 #目标文件夹结构     
