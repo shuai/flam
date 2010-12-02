@@ -2,8 +2,8 @@
 
 # Transcode raw videos to bitrates we want
 
-require "mysql"
 require "common.rb"
+require "mysql"
 require "models.rb"
 require "video.rb"
 

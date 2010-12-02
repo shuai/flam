@@ -1,0 +1,47 @@
+
+
+Started GET "/rails/info/properties" for 77.40.224.114 at Tue Nov 30 01:03:52 +0000 2010
+
+ActionController::RoutingError (No route matches "/rails/info/properties"):
+  
+
+
+
+Started GET "/admin" for 77.40.224.114 at Tue Nov 30 01:04:05 +0000 2010
+  Processing by Admin::AdminsController#index as HTML
+Rendered admin/admins/index.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 39ms (Views: 17.0ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/admin/admin_tasks/new?type=package" for 77.40.224.114 at Tue Nov 30 01:04:19 +0000 2010
+  Processing by Admin::AdminTasksController#new as HTML
+  Parameters: {"type"=>"package"}
+Rendered admin/admin_tasks/new.html.erb within layouts/application (10.5ms)
+Completed 200 OK in 22ms (Views: 14.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/admin/package_tasks" for 77.40.224.114 at Tue Nov 30 01:04:25 +0000 2010
+  Processing by Admin::AdminTasksController#create as HTML
+  Parameters: {"commit"=>"Create Package task", "location"=>"1123", "authenticity_token"=>"GBA8mOocUDeo3FEcG7wwHZUBxFHFBL4sqBvupWS23hE=", "utf8"=>"\342\234\223", "type"=>"package"}
+Rendered admin/admin_tasks/new.html.erb within layouts/application (93.1ms)
+Completed 200 OK in 447ms (Views: 94.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/admin" for 77.40.224.114 at Tue Nov 30 01:04:27 +0000 2010
+  Processing by Admin::AdminsController#index as HTML
+Rendered admin/admins/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/rails/info/properties" for 77.40.224.114 at Tue Nov 30 01:04:34 +0000 2010
+
+ActionController::RoutingError (No route matches "/rails/info/properties"):
+  
+
+
+
+Started GET "/rails/info/properties" for 77.40.224.114 at Tue Nov 30 01:04:37 +0000 2010
+
+ActionController::RoutingError (No route matches "/rails/info/properties"):
+  
+
