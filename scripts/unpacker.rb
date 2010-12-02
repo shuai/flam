@@ -108,6 +108,9 @@ def search_dirctory(directory)
 end
 
 def parse_resource(dir)
+    puts "================================================="
+    puts "Walk through package '#{dir}' ..."
+    
     if !dir.nil? && !dir.empty?
         dirname = dir.split('/').last
         uuid = UUID.generate
@@ -123,38 +126,62 @@ def parse_resource(dir)
     end 
 end
 
+def run_task(task)
+    $error = nil
+
+    begin
+        task.status = "ing"
+        task.save
+        parse_resource(task.location)
+    rescue => e
+        $error = e.to_str
+    end
+
+    puts $error
+    if !$error.nil?
+        task.status = "failed"
+        task.err_msg = $error
+        task.save
+    else
+        task.status = "done"
+        task.err_msg = ""
+        task.save
+    end
+end
+
+def scan_incoming_folder
+
+    if !File.directory? Incoming 
+        raise "Directory doesn't exist: #{Incoming}"
+    end
+        
+    list = []
+    Dir.foreach(Incoming) do |filename|
+        if filename == '.' or filename == '..'
+            next
+        end
+        
+        full_path = File.join Incoming,filename
+          
+        begin
+            parse_resource(full_path)
+        rescue => e
+            puts e
+        end
+    end
+end
+
 if __FILE__ == $0
     
     while true
         tasks = PackageTask.where(:status => 'new').order("priority").limit(5)
         
         tasks.each do |task|
-          puts "================================================="
-          puts "Walk through package '#{task.location}' ..."
-          
-          $error = nil
-          
-          begin
-            task.status = "ing"
-            task.save
-            parse_resource(task.location)
-          rescue => e
-            $error = e.to_str
-          end
-          
-          puts $error
-          if !$error.nil?
-            task.status = "failed"
-            task.err_msg = $error
-            task.save
-          else
-            task.status = "done"
-            task.err_msg = ""
-            task.save
-          end
-          
+            run_task task
         end
-        
+         
+        scan_incoming_folder
+         
         puts 'idling ...'
         sleep 5
     end
