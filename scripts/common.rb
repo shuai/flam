@@ -13,7 +13,7 @@ Clip_dir='/srv/data/clips/'
 Utorrent_srv="localhost"
 Utorrent_port = 8080
 Utorrent_user = "admin"
-Utorrent_psw = ""
+Utorrent_psw = "1qazxsw2"
 
 #TODO 完全列表
 Caption_extension = ['.wtf']
