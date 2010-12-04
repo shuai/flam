@@ -71,28 +71,40 @@ class UTorrent
 
     def login
         dbg("Logging in to utorrent service\n")
-        Net::HTTP.start(Utorrent_srv, Utorrent_port) {|http|
-            req = Net::HTTP::Get.new('/gui/token.html')
-            req.basic_auth Utorrent_user, Utorrent_psw
-            response = http.request(req)
+        
+        Retry = 10
+        i = 0;
+        while true
+            Net::HTTP.start(Utorrent_srv, Utorrent_port) {|http|
+                req = Net::HTTP::Get.new('/gui/token.html')
+                req.basic_auth Utorrent_user, Utorrent_psw
+                response = http.request(req)
 
-            #token
-            token_page = response.body
-            ret = /<div.*id=\'token\'.*>(.*)<\/div>/m.match token_page
-            if ret.nil?
-                raise "Failed to get token, response: #{token_page}"
-            end
-            @token = ret[1]
+                #token
+                token_page = response.body
+                ret = /<div.*id=\'token\'.*>(.*)<\/div>/m.match token_page
+                if ret.nil?
+                    if i < Retry
+                        i = i+1
+                        sleep 5
+                        next
+                    else
+                        raise "Failed to get token, response: #{token_page}"
+                    end
+                end
+                @token = ret[1]
 
 
-             #Get the cookie
-            cookie = /GUID=(.*);/m.match response["Set-Cookie"]
-            if cookie.nil?
-                raise "Failed to get cookie"
-            end
-            @guid = cookie[1]
-        }
-        dbg("Token: #{@token}\nGUID:#{@guid}\n")
+                 #Get the cookie
+                cookie = /GUID=(.*);/m.match response["Set-Cookie"]
+                if cookie.nil?
+                    raise "Failed to get cookie"
+                end
+                @guid = cookie[1]
+            }
+            dbg("Token: #{@token}\nGUID:#{@guid}\n")
+            break
+        end
     end
 
     def get_torrents

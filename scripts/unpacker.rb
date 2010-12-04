@@ -116,12 +116,12 @@ def parse_resource(dir)
         uuid = UUID.generate
           
         if File.directory? dir or (File.file? dir and is_video dir)
-            system "mkdir #{Raw_files_dir}#{uuid}/"
-	        system "mv #{dir} #{Raw_files_dir}#{uuid}/"
-            handle_directory "#{Raw_files_dir}#{uuid}/", uuid    
+            dest = "#{Raw_files_dir}#{uuid}/"
+            fileutils.mkdir(dest)
+            fileutils.mv(Dir.glob("#{dir}/*"), dest)
+            handle_directory dest, uuid    
 	    else
             $error = "Not a valid directory or video file"
-            # TODO 处理压缩包
         end
     end 
 end

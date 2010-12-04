@@ -62,7 +62,7 @@ def transcode (source,dest,bitrate)
         Dir.mkdir(File.dirname(dest))
     end
 
-    IO.popen("ffmpeg -i #{source} -pass 1 -vcodec libx264 -vpre slow_firstpass -b #{bitrate} -bt #{bitrate * 2} #{dest}").eof?
+    IO.popen("ffmpeg -i \"#{source}\" -pass 1 -vcodec libx264 -vpre slow_firstpass -b #{bitrate} -bt #{bitrate * 2} #{dest}").eof?
     if !Video.new(dest).is_video?
         raise "ffmpege failed"
     end
@@ -72,7 +72,7 @@ def transcode (source,dest,bitrate)
         raise "Failed to remove temporary output"
     end
     
-    IO.popen("ffmpeg -i #{source} -acodec libfaac -ab 32k -pass 2 -vcodec libx264 -vpre slow -b #{bitrate} -bt #{bitrate*2}  #{dest}").eof?
+    IO.popen("ffmpeg -i \"#{source}\" -acodec libfaac -ab 32k -pass 2 -vcodec libx264 -vpre slow -b #{bitrate} -bt #{bitrate*2}  #{dest}").eof?
 end
 
 if __FILE__ == $0

@@ -16428,3 +16428,137 @@ Started GET "/admin/clips/1/stream" for 127.0.0.1 at Sun Nov 28 10:49:09 -0800 2
   [1m[35mClip Load (0.1ms)[0m  SELECT `clips`.* FROM `clips` WHERE (`clips`.`id` = 1) LIMIT 1
 Sent file /home/shuai/work/clips/1/31744.mp4 (0.1ms)
 Completed 200 OK in 12ms
+
+
+Started GET "/admin" for 127.0.0.1 at Fri Dec 03 22:46:09 -0800 2010
+
+Mysql::Error (Access denied for user 'root'@'localhost' (using password: YES)):
+  
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (18.0ms)
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (44.6ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Fri Dec 03 22:48:31 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[36mSQL (386.0ms)[0m  [1mSHOW TABLES[0m
+  [1m[35mPackage Load (411.3ms)[0m  SELECT `packages`.* FROM `packages`
+  [1m[36mSQL (86.4ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')) AS subquery[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')) AS subquery[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'failed')) AS subquery[0m
+  [1m[35mSQL (0.7ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `raw_videos` WHERE (`raw_videos`.package_id = 1)) AS subquery
+Rendered admin/admins/index.html.erb within layouts/application (275.0ms)
+Completed 200 OK in 1589ms (Views: 262.1ms | ActiveRecord: 884.8ms)
+
+
+Started GET "/admin/packages/1" for 127.0.0.1 at Fri Dec 03 22:49:14 -0800 2010
+  Processing by Admin::PackagesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPackage Load (0.3ms)[0m  [1mSELECT `packages`.* FROM `packages` WHERE (`packages`.`id` = 1) LIMIT 1[0m
+  [1m[35mRawVideo Load (0.3ms)[0m  SELECT `raw_videos`.* FROM `raw_videos` WHERE (`raw_videos`.package_id = 1)
+Rendered admin/packages/show.html.erb within layouts/application (36.7ms)
+Completed 200 OK in 85ms (Views: 72.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/raw_videos/1" for 127.0.0.1 at Fri Dec 03 22:49:16 -0800 2010
+  Processing by Admin::RawVideosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRawVideo Load (20.5ms)[0m  [1mSELECT `raw_videos`.* FROM `raw_videos` WHERE (`raw_videos`.`id` = 1) LIMIT 1[0m
+  [1m[35mRawVideoStream Load (0.4ms)[0m  SELECT `raw_video_streams`.* FROM `raw_video_streams` WHERE (`raw_video_streams`.raw_video_id = 1)
+  [1m[36mClip Load (20.0ms)[0m  [1mSELECT `clips`.* FROM `clips` WHERE (`clips`.raw_video_id = 1)[0m
+  [1m[35mTranscodingTask Load (0.4ms)[0m  SELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'TranscodingTask') AND (`admin_tasks`.`status` = 'ing') AND (`admin_tasks`.`raw_video_id` = 1)
+  [1m[36mTranscodingTask Load (0.2ms)[0m  [1mSELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'TranscodingTask') AND (`admin_tasks`.`status` = 'new') AND (`admin_tasks`.`raw_video_id` = 1)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'TranscodingTask') AND (`admin_tasks`.`status` = 'failed') AND (`admin_tasks`.`raw_video_id` = 1)) AS subquery
+  [1m[36mTranscodingTask Load (0.2ms)[0m  [1mSELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'TranscodingTask') AND (`admin_tasks`.`status` = 'failed') AND (`admin_tasks`.`raw_video_id` = 1)[0m
+  [1m[35mPackage Load (0.1ms)[0m  SELECT `packages`.* FROM `packages` WHERE (`packages`.`id` = 1) LIMIT 1
+Rendered admin/raw_videos/show.html.erb within layouts/application (98.5ms)
+Completed 200 OK in 182ms (Views: 115.4ms | ActiveRecord: 42.0ms)
+
+
+Started GET "/admin/admin_tasks/new?type=transcoding&raw_video_id=1" for 127.0.0.1 at Fri Dec 03 22:49:27 -0800 2010
+  Processing by Admin::AdminTasksController#new as HTML
+  Parameters: {"raw_video_id"=>"1", "type"=>"transcoding"}
+  [1m[36mRawVideo Load (0.1ms)[0m  [1mSELECT `raw_videos`.* FROM `raw_videos` WHERE (`raw_videos`.`id` = 1) LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_admin_admin_tasks_new_html_erb___623385376__616203238_0 at /home/shuai/work/flam/web/app/views/admin/admin_tasks/new.html.erb:5)
+Rendered admin/admin_tasks/new.html.erb within layouts/application (16.4ms)
+Completed 200 OK in 136ms (Views: 42.7ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/admin/transcoding_tasks" for 127.0.0.1 at Fri Dec 03 22:49:30 -0800 2010
+  Processing by Admin::AdminTasksController#create as HTML
+  Parameters: {"commit"=>"Create Transcoding task", "raw_video_id"=>"1", "authenticity_token"=>"gLr7VPWALLFsHwfl7UAt5OBiHwMv8Nb5kiCRq4p+W8s=", "utf8"=>"✓", "type"=>"transcoding", "bitrate"=>"200"}
+  [1m[35mRawVideo Load (0.1ms)[0m  SELECT `raw_videos`.* FROM `raw_videos` WHERE (`raw_videos`.`id` = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.8ms)[0m  describe `admin_tasks`
+  [1m[36mSQL (49.6ms)[0m  [1mINSERT INTO `admin_tasks` (`bitrate`, `created_at`, `err_msg`, `location`, `priority`, `raw_video_id`, `status`, `type`, `updated_at`) VALUES (204800, '2010-12-04 06:49:30', NULL, NULL, NULL, 1, 'new', 'TranscodingTask', '2010-12-04 06:49:30')[0m
+  [1m[35mSQL (1.7ms)[0m  COMMIT
+Redirected to http://localhost:3000/admin
+Completed 302 Found in 108ms
+
+
+Started GET "/admin" for 127.0.0.1 at Fri Dec 03 22:49:30 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[36mPackage Load (0.1ms)[0m  [1mSELECT `packages`.* FROM `packages`[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')) AS subquery
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')) AS subquery
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'failed')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `raw_videos` WHERE (`raw_videos`.package_id = 1)) AS subquery[0m
+Rendered admin/admins/index.html.erb within layouts/application (31.1ms)
+Completed 200 OK in 53ms (Views: 35.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/packages/1" for 127.0.0.1 at Fri Dec 03 22:49:32 -0800 2010
+  Processing by Admin::PackagesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPackage Load (0.2ms)[0m  SELECT `packages`.* FROM `packages` WHERE (`packages`.`id` = 1) LIMIT 1
+  [1m[36mRawVideo Load (0.1ms)[0m  [1mSELECT `raw_videos`.* FROM `raw_videos` WHERE (`raw_videos`.package_id = 1)[0m
+Rendered admin/packages/show.html.erb within layouts/application (40.0ms)
+Completed 200 OK in 61ms (Views: 48.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/admin/raw_videos/1" for 127.0.0.1 at Fri Dec 03 22:49:33 -0800 2010
+  Processing by Admin::RawVideosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRawVideo Load (0.1ms)[0m  SELECT `raw_videos`.* FROM `raw_videos` WHERE (`raw_videos`.`id` = 1) LIMIT 1
+  [1m[36mRawVideoStream Load (0.1ms)[0m  [1mSELECT `raw_video_streams`.* FROM `raw_video_streams` WHERE (`raw_video_streams`.raw_video_id = 1)[0m
+  [1m[35mClip Load (0.1ms)[0m  SELECT `clips`.* FROM `clips` WHERE (`clips`.raw_video_id = 1)
+  [1m[36mTranscodingTask Load (0.4ms)[0m  [1mSELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'TranscodingTask') AND (`admin_tasks`.`status` = 'ing') AND (`admin_tasks`.`raw_video_id` = 1)[0m
+  [1m[35mTranscodingTask Load (0.3ms)[0m  SELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'TranscodingTask') AND (`admin_tasks`.`status` = 'new') AND (`admin_tasks`.`raw_video_id` = 1)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'TranscodingTask') AND (`admin_tasks`.`status` = 'failed') AND (`admin_tasks`.`raw_video_id` = 1)) AS subquery[0m
+  [1m[35mTranscodingTask Load (0.2ms)[0m  SELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'TranscodingTask') AND (`admin_tasks`.`status` = 'failed') AND (`admin_tasks`.`raw_video_id` = 1)
+  [1m[36mPackage Load (0.1ms)[0m  [1mSELECT `packages`.* FROM `packages` WHERE (`packages`.`id` = 1) LIMIT 1[0m
+Rendered admin/raw_videos/show.html.erb within layouts/application (137.4ms)
+Completed 200 OK in 159ms (Views: 142.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin/raw_videos/1" for 127.0.0.1 at Fri Dec 03 22:50:07 -0800 2010
+  Processing by Admin::RawVideosController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mRawVideo Load (0.2ms)[0m  SELECT `raw_videos`.* FROM `raw_videos` WHERE (`raw_videos`.`id` = 1) LIMIT 1
+  [1m[36mRawVideoStream Load (0.1ms)[0m  [1mSELECT `raw_video_streams`.* FROM `raw_video_streams` WHERE (`raw_video_streams`.raw_video_id = 1)[0m
+  [1m[35mClip Load (0.1ms)[0m  SELECT `clips`.* FROM `clips` WHERE (`clips`.raw_video_id = 1)
+  [1m[36mTranscodingTask Load (0.4ms)[0m  [1mSELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'TranscodingTask') AND (`admin_tasks`.`status` = 'ing') AND (`admin_tasks`.`raw_video_id` = 1)[0m
+  [1m[35mTranscodingTask Load (0.8ms)[0m  SELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'TranscodingTask') AND (`admin_tasks`.`status` = 'new') AND (`admin_tasks`.`raw_video_id` = 1)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'TranscodingTask') AND (`admin_tasks`.`status` = 'failed') AND (`admin_tasks`.`raw_video_id` = 1)) AS subquery[0m
+  [1m[35mTranscodingTask Load (0.4ms)[0m  SELECT `admin_tasks`.* FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'TranscodingTask') AND (`admin_tasks`.`status` = 'failed') AND (`admin_tasks`.`raw_video_id` = 1)
+  [1m[36mPackage Load (0.1ms)[0m  [1mSELECT `packages`.* FROM `packages` WHERE (`packages`.`id` = 1) LIMIT 1[0m
+Rendered admin/raw_videos/show.html.erb within layouts/application (100.6ms)
+Completed 200 OK in 140ms (Views: 104.3ms | ActiveRecord: 2.3ms)
+
+
+Started GET "/admin" for 127.0.0.1 at Fri Dec 03 23:18:11 -0800 2010
+  Processing by Admin::AdminsController#index as HTML
+  [1m[35mPackage Load (20.4ms)[0m  SELECT `packages`.* FROM `packages`
+  [1m[36mSQL (372.9ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')) AS subquery[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'ing')) AS subquery[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'new')) AS subquery
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `admin_tasks` WHERE (`admin_tasks`.`type` = 'PackageTask') AND (`admin_tasks`.`status` = 'failed')) AS subquery[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM `raw_videos` WHERE (`raw_videos`.package_id = 1)) AS subquery
+Rendered admin/admins/index.html.erb within layouts/application (837.6ms)
+Completed 200 OK in 912ms (Views: 489.0ms | ActiveRecord: 393.9ms)

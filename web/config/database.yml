@@ -5,9 +5,8 @@ development:
   encoding: utf8
   database: db_flam
   pool: 5  
-  username: root  
-  password: sqlroot
-  socket: /var/run/mysqld/mysqld.sock
+  username: root
+  host: localhost
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

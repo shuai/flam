@@ -10,10 +10,10 @@ Incoming = "/srv/download/complete/"
 Raw_files_dir = "/srv/data/raw/"
 Clip_dir='/srv/data/clips/'
 
-Utorrent_srv="ec2-175-41-188-116.ap-southeast-1.compute.amazonaws.com"
+Utorrent_srv="localhost"
 Utorrent_port = 8080
 Utorrent_user = "admin"
-Utorrent_psw = "1qazxsw2"
+Utorrent_psw = ""
 
 #TODO 完全列表
 Caption_extension = ['.wtf']
