@@ -12,6 +12,7 @@ require "mysql"
 require "common.rb"
 require "video.rb"
 require "models.rb"
+require "utorrent.rb"
 
 def is_video(name)
     Video.is_video? name      
