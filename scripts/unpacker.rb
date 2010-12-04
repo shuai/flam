@@ -78,6 +78,7 @@ def handle_directory(directory,package_id)
     @videos=[]
     @captions=[]
     
+    dbg "Searching directory"
     search_dirctory(directory)
     
     if @videos.size == 0 and @captions.size == 0
@@ -96,20 +97,27 @@ def search_dirctory(directory)
         end
         
         full_path = File.join directory,filename
+  
+       
           
         if File.directory? full_path
+            dbg "--->Enter folder #{full_path}"
             search_dirctory(full_path)
         elsif is_video full_path
+            dbg "Video File: #{full_path}"
             @videos << full_path
         elsif is_caption full_path
+            dbg "Caption File: #{full_path}"
             @captions << fullpath
+        else
+            dbg "Unrecognized File: #{full_path}"
         end
     end
 end
 
 def parse_resource(dir)
-    puts "================================================="
-    puts "Walk through package '#{dir}' ..."
+    dbg "================================================="
+    dbg "Walk through package '#{dir}' ..."
     
     if !dir.nil? && !dir.empty?
         dirname = dir.split('/').last
@@ -117,8 +125,10 @@ def parse_resource(dir)
           
         if File.directory? dir or (File.file? dir and is_video dir)
             dest = "#{Raw_files_dir}#{uuid}/"
-            fileutils.mkdir(dest)
-            fileutils.mv(Dir.glob("#{dir}/*"), dest)
+            dbg "Moving to #{dest}"
+
+            FileUtils.mkdir(dest)
+            FileUtils.mv(dir, dest)
             handle_directory dest, uuid    
 	    else
             $error = "Not a valid directory or video file"
@@ -152,13 +162,15 @@ end
 if __FILE__ == $0
     
     while true
+        handle_torrents
+        
         tasks = PackageTask.where(:status => 'new').order("priority").limit(5)
         
         tasks.each do |task|
             run_task task
         end
 
-        puts 'idling ...'
+        dbg 'idling ...'
         sleep 5
     end
 end

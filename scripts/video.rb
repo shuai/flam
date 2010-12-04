@@ -23,10 +23,11 @@ class Video
     end
 
     def initialize(filename)
+        dbg "Initialize video class: #{filenam}\n"
         @FileName = filename
 
         #Not using IO.popen since this stupid ffprobe always output something to stderr
-        stdin, stdout, stderr = Open3.popen3("ffprobe -show_format -show_streams #{filename}")
+        stdin, stdout, stderr = Open3.popen3("ffprobe -show_format -show_streams \"#{filename}\"")
         output = stdout.read(10240)
         
         if output.nil?
@@ -87,8 +88,7 @@ class Video
 end
 
 if __FILE__ == $0
-    v = Video.new "/home/shuai/Desktop/2.wmv"
-    puts v.inspect
+    puts "hmm?"
 end
 
 

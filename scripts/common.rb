@@ -6,7 +6,7 @@ Db_environment = "production"
 
 
 #目标文件夹结构     
-Incoming = "/srv/download/complete/"
+Incoming = "/srv/data/incoming/tmp/"
 Raw_files_dir = "/srv/data/raw/"
 Clip_dir='/srv/data/clips/'
 

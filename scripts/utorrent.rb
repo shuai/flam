@@ -6,26 +6,31 @@ require "rubygems"
 require "json"
 require "net/http.rb"
 
+Retry = 10
+
 class Torrent
     attr_accessor :FileName, :Status, :Hash, :Msg
 
     def initialize(json)
+        
         @Hash = json[0]
         @FileName = json[2]
         @Msg = json[21]
 
         status_code = json[1]
         @Status = "unknown"
-        if status_code & 16
+        if status_code & 16 == 16
             @Status = "error"
-        elsif json[4] == "1000"
+        elsif json[4] == 1000
             @Status = "done"
         end
+        dbg("New torrent object: progress: #{json[4]}, status:#{json[1]}:#{@Status}, filename: #{json[2]}")
+        
     end
 
     #delete torrent from utorrent
     def delete
-        utorrent.action("action=remove", @Hash)
+        $utorrent.action("action=remove", @Hash)
     end
 end
 
@@ -72,7 +77,6 @@ class UTorrent
     def login
         dbg("Logging in to utorrent service\n")
         
-        Retry = 10
         i = 0;
         while true
             Net::HTTP.start(Utorrent_srv, Utorrent_port) {|http|
@@ -124,35 +128,39 @@ class UTorrent
     end
 end
 
-utorrent = UTorrent.new
+def handle_torrents
+    torrents = $utorrent.get_torrents
+    torrents.each do |t|
+    
+        file = File.join(Incoming, t.FileName)
+        
+        if t.Status != "done"
+            dbg("File not complete:#{file}")
+            next
+        end
+        
+
+       
+        dbg("New complete file: #{file}\n")
+        if File.exist? file
+            task = PackageTask.new(:status => "new", :location => File.join(Incoming, t.FileName))
+            if task.save
+                t.delete
+            else
+                dbg("Failed to write to database")
+            end
+        else
+            dbg("file doesn't exist\n")
+        end                
+    end
+end
+
+$utorrent = UTorrent.new
 
 if __FILE__ == $0
 
     while true
-        torrents = utorrent.get_torrents
-        torrents.each do |t|
-        
-            file = File.join(Incoming, t.FileName)
-            
-            if t.Status != "done"
-                dbg("File not complete:#{file}")
-                next
-            end
-            
-
-           
-            dbg("New complete file: #{file}\n")
-            if File.exist? file
-                task = PackageTask.new(:location => File.join(Incoming, t.FileName))
-                if task.save
-                    t.delete
-                else
-                    dbg("Failed to write to database")
-                end
-            else
-                dbg("file doesn't exist\n")
-            end                
-        end
+        handle_torrents
 
         print "Idling...\n"
         sleep(10)
