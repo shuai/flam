@@ -149,28 +149,6 @@ def run_task(task)
     end
 end
 
-def scan_incoming_folder
-
-    if !File.directory? Incoming 
-        raise "Directory doesn't exist: #{Incoming}"
-    end
-        
-    list = []
-    Dir.foreach(Incoming) do |filename|
-        if filename == '.' or filename == '..'
-            next
-        end
-        
-        full_path = File.join Incoming,filename
-          
-        begin
-            parse_resource(full_path)
-        rescue => e
-            puts e
-        end
-    end
-end
-
 if __FILE__ == $0
     
     while true
@@ -179,9 +157,7 @@ if __FILE__ == $0
         tasks.each do |task|
             run_task task
         end
-         
-        scan_incoming_folder
-         
+
         puts 'idling ...'
         sleep 5
     end
