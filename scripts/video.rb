@@ -1,5 +1,6 @@
 #! /usr/bin/env ruby
 
+require "common.rb"
 require "open3.rb"
 
 class Stream
