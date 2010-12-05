@@ -23,7 +23,7 @@ class Video
     end
 
     def initialize(filename)
-        dbg "Initialize video class: #{filenam}\n"
+        dbg "Initialize video class: #{filename}\n"
         @FileName = filename
 
         #Not using IO.popen since this stupid ffprobe always output something to stderr
